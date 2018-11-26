@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>901 Flash Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: blueviolet;
+        }
+        #wrapper {
+            background-color: blueviolet;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        #titleDiv {
+            background-color: green;
+            border: 2px solid black;
+            width: 80%;
+            height: 100px;
+            margin-left: 10%;
+            padding-top: 10%;
+            margin-bottom: 1%;
+        }
+        #title {
+            font-size: 25px;
+        }
+        #subtitle{
+            font-size: 20px;
+        }
+        #categorySelector {
+            background-color:darkgoldenrod;
+            border: 1px dashed black;
+            margin-bottom: 0px;
+        }
+        #currentCard {
+            background-color: mediumseagreen;
+            padding-top: 15%;
+            width: 80%;
+            height: 200px;
+            color: black;
+            margin-left: 10%;
+        }
+        #buttonBar {
+            width: 100%;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        #allOrNone {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="titleDiv">
+            <div id="title">A+ Certification 220-901 Flash Cards</div>
+            <div id="subtitle">Created by Austin Roberts</div>
+        </div>
+        <div id="categorySelector">
+            Please choose from the following sections:
+            <fieldset id="checkboxes">
+                <br>
+                <div>
+                    <input type="checkbox" id="visibleComputer" name="visibleComputerCheckbox">
+                    <label for="visableComputer">The Visible Computer</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="microprocessors" name="microprocessorsCheckbox">
+                    <label for="microprocessors">Microprocessors</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ram" name="ramCheckbox">
+                    <label for="ram">RAM</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="bios" name="biosCheckbox">
+                    <label for="bios">BIOS</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="motherboards" name="motherboardsCheckbox">
+                    <label for="motherboards">MotherBoards</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="powerSupplies" name="powersuppliesCheckbox">
+                    <label for="powersupplies">Power Supplies</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hardDriveTech" name="hardDriveTechCheckbox">
+                    <label for="hardDriveTech">Hard Drive Technologies</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="implementingHardDrives" name="implementingHardDrivesCheckbox">
+                    <label for="implementingHardDrives">Implementing Hard Drives</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="peripherals" name="peripheralsCheckbox">
+                    <label for="peripherals">Essential Peripherals</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="buildingPC" name="buildingPCCheckbox">
+                    <label for="buildingPC">Building a PC</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="displayTech" name="displayTechCheckbox">
+                    <label for="visableComputer">Display Technologies</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="essentialNetworking" name="essentialNetworkingCheckbox">
+                    <label for="essentialNetworking">Essentials of Networking</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="lan" name="lanCheckbox">
+                    <label for="lan">Local Area Networking</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="wireless" name="wirelessCheckbox">
+                    <label for="wireless">Wireless Networking</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="internet" name="internetCheckbox">
+                    <label for="internet">The Internet</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="portableComputing" name="portableComputingCheckbox">
+                    <label for="portableComputing">Portable Computing</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="printers" name="printersCheckbox">
+                    <label for="printers">Printers and Multifunction Devices</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="mobile" name="mobileCheckbox">
+                    <label for="mobile">Understanding Mobile Devices</label>
+                </div>
+            </fieldset>
+            <div id="allOrNone">
+                    <a rel="checkboxes" href="#select_all"><button>All Topics</button></a>
+                    <a rel="checkboxes" href="#select_none"><button>No Topics</button></a>
+                </div>
+            <div>
+                <button type="submit" onclick="generate()">Generate Flash Cards</button>
+            </div>
+        </div>
+        <div id="currentCard"></div>
+        <div id="buttonBar">
+            <button id="showAnswer" onclick="showAnswer()">Show Answer</button>
+            <button id="correct" onclick="correct()">Correct</button>
+            <button id="incorrect" onclick="incorrect()">Incorrect</button>
+            <button id="showQuestion" onclick="showQuestion()">Re-Show Question</button>
+            <button id="nextCard" onclick="nextCard()">Next Card</button>
+        </div>
+    </div>    
+    <script type="text/javascript">
+      $(document).ready( function() {
+          //All topics
+          $("A[href='#select_all']").click( function() {
+              $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', true);
+              return false;
+          });
+          //Select No Topics
+          $("A[href='#select_none']").click(function() {
+              $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', false);
+              return false;
+          });
+      });
+        //hide the card div and buttons
+      $("#currentCard").hide();
+      $("#showAnswer").hide();
+      $("#showQuestion").hide();
+      $("#nextCard").hide();
+      $("#correct").hide();
+      $("#incorrect").hide();
+       //set all variables
+       //correct counter
+      var numCorrect = 0;
+       //incorrect counter
+      var numIncorrect = 0;
+       //create empty object to hold current flash card
+      var currentCard = {};
+       //create numeric to store current card index
+      var currentCardIndex = 0;
+       //create an empty array to house all questions
+      var allTopicsArray = [];
+       //questions for each chapter
+      var visibleComputerArray = [{"front":"Describe a VGA port.", "back": "An uneven oval female port with 15 pins. It carries audio and video."},{"front":"How many pins does a parralel port have? Is it a male or female port? What is it typically used for?", "back": "25 pins, a female port, usually for printers."},{"front":"What Legacy Port is a 9-pin Male connector?", "back": "Serial Port"},{"front":"What Legacy Port are round, female connectors? And what did they connect?", "back": "Mini-Din PS2: Keyboard/Mouse"},{"front":"What is the size of the mini audio jack?", "back": "3.5mm or 1/8th inch"},{"front":"What does HDMI stand for?", "back": "High Definition Multimedia Interface"},{"front":"What does USB stand for?", "back": "Universal Serial Bus"},{"front":"What is the technical name for an ethernet cable?", "back": "RJ45 Cable"},{"front":"What is an ESATA cable, and wat is it used for?", "back": "Primarily Used for external hard drives, ESATA stands for External Serial Advanced Technology Attachment."},{"front":"What is a S/PFID?", "back": "An S/PFID is a fiber optic cable that carries audio. It's full name is Sony/Phillips Digital Interface."},{"front": "What is a computer tower called?", "back": "The technical term for the tower and all the hardware inside is the System Unit"},{"front": "What type of port is the most widely used?", "back": "USB"}, {"front": "What is the main difference between VGA and DVI?", "back": "DVI only carries video, while VGA carries video and sound."},{"front": "What is an OEM Fan?", "back": "An Original Equipment Manufacturer."},{"front": "How many cables should a fan's connector have in order to be able to control the speed of the fan?", "back": "Four cables."},{"front": "How can you control the speed of your fans?", "back": "There are two options, either in your motherboard settings, or with third-party programs, such as SpeedFan."},{"front": "How does Liquid Cooling work?", "back": "The liquid goes through a mount on the CPU, takes the heat, runs through a radiator which cools it down, and then runs it through again"}];
+      var microprocessorArray = [{"front": "what is the overall design of a CPU called?", "back": "Microarchitecture"}, {"front": "Who are the two biggest designers of CPUs, and which type does each company use?", "back": "AMD and Intel. AMD uses PGA (Pin Grid Array) and Intel uses LGA (Land Grid Array)."},{"front":"What does CPU stand for?", "back": "Central Processing Unit"},{"front":"What does Hertz mean?", "back": "Times per Second"},{"front":"What is the System Crystal?", "back": "A little piece of Quartz ocillating at a speed determined by the motherboard."},{"front":"How does the CPU run faster than the System Crystal?", "back": "Each CPU has a built in 'Clock Multiplier' that exponentially increases the speed, allowing the CPU to run faster than the System Crystal."},{"front":"What is Over-Clocking?", "back": "Over-Clocking is increasing the clock multiplier of the CPU, allowing it to run higher than it's rated speed."},{"front":"What is a multicore CPU?", "back": "A Multicore CPU is a CPU that has multiple physical chips inside a single CPU, each of these chips is referred to as a 'core'."},{"front":"What is Hyperthreading?", "back": "Hyperthreading is a multicore CPU microarchitecture that virtually duplicates each core of the CPU, thus, a quadcore CPU, would have 8 virtual cores. This is only availiable on the Intel i7 CPU."},{"front":"Which is larger, a Level 1 Cache, or a Level 3 Cache?", "back": "A level 3 cache is faster, though much slower than a Level 1 cache."},{"front":"Which cache is closest to the CPU?", "back": "The Level 1 Cache is the closest to the CPU."},{"front":"What is a cache?", "back": "Temporary storage to speed up/help processing by having ready to utilize data."},{"front": "What is Static RAM?", "back": "Static RAM is a small amount of RAM located inside the CPU, that holds the cache."},{"front": "In a computer, You can have 3 caches, Level 1, Level 2, and Level 3. List them in order of speed, fastest to slowest.", "back": "Level 1, Level 2, Level 3."},{"front": "If you have a level 1, level 2, and level 3 cache in a computer, list them in storage size.", "back": "Level 3, Level 2, Level 1."},{"front": "What is the difference between a 32-bit and 64-bit CPU?", "back": "It determines if you have 32 or 64 wires connecting the CPU to your RAM. Most newer systems run 64-bit, as it is much faster than 32-bit. When in doubt, install 64-bit."},{"front": "How much RAM can a 32-bit system handle?", "back": "Only up to 4 gb of RAM."},{"front": "What are CPU Extensions?", "back": "Virtualization Support - Creating a virtual desktop inside your computer, usually set up in BIOS. And an Integrated GPU - integrated the video card into the CPU, saving on power, but with lower graphic power."},{"front": "What are the two types or CPU Sockets, and which company uses each?", "back": "LGA (Land Grid array) is used by Intel, and PGA (Pin Grid Array) is used by AMD."},{"front":"What is a ZIF Socket?","back":"A Zero Insertion Force."},{"front":"Describe the Intel LGA 775 Socket","back":"Made by Intel, 775 lands on the socket, first mainstream LGA CPU, ran with DDR2."},{"front":"Describe the Intel LGA 1156 Socket","back":"A socket made by Intel with 1156 lands. First socket to support Built-In North Bridge, and it ran with DDR3."},{"front":"Describe the Intel 1366 socket.","back":"A socket made by Intel with 1366 lands. Still had built in north bridge for PCI-E support. Also had a built in memory-controller. Only ran with i7."},{"front": "Describe the Intel 1155 socket.", "back": "A socket made by Intel with 1155 lands. This socket replaced the Intell 1156, was the first to utilize full support onboard graphics. Was used on i3s, i5s, and i7s."},{"front": "Describe the Intel 2011 socket.", "back": "Replaced the Intel 1366. They started with DDR3 Compatibility, and by the end of the lifespan of the socket, had been upgraded to support DDR4. The first socket to stop supporting PCI, and only supported PCI-E. This was only used with i7s."},{"front": "Describe the Intel 1150 socket.", "back": "A mainstream socket that supports multiple CPUs, began it's lifespan with DDR3 compatibility, now compatible with DDR4, and boasts an outrageous number of PCI-E connections."},{"front": "What are the two types of AMD sockets?", "back": "While all AMD sockets are PGAs, there are two types, AM and FM."},{"front": "Name the AMD AM Sockets.", "back": "AM2, AM3, and AM3+"},{"front": "Name the AMD FM Sockets.", "back": "FM1, FM2, and FM2+"},{"front": "Describe AMD AM2 Socket.", "back": "940 Pins, Hyper-Transport Capability, Supported DDR2"},{"front": "Describe the AMD Socket AM3.", "back": "Had 941 Pins, and Supported DDR3."},{"front": "Describe the AMD Socket AM3+", "back": "Had 942 Pins, and featured power and speed improvements over the AM3."},{"front": "Describe the AMD FM1 Socket", "back": "Had 905 Pins"},{"front": "Describe the AMD FM2 Socket.", "back": "Had 904 Pins, power and speed improvement over FM1 socket."},{"front": "Describe the AMD FM2+ Socket", "back": "Has 906 Pins, and signifigantlly more PCI-E support over the FM2 socket."}]; 
+      var ramArray = [{"front": "What is the speed calculation for DDR2 RAM?", "back": "Take motherboard speed, double it, then double it again, and then x8."}, {"front": "What does the S in SDRAM stand for?", "back": "Synchronous"},{"front": "What does DRAM stand for?", "back": "Dynamic Random Access Memory"},{"front": "Describe SDRAM.", "back": "SDRAM is syncronized to the system clock, it features a 168 pin DIMM (Dual Inline Memory Modules), it has 2 notches on the bottom of the stick. Because these RAMs syncronized with the CPU clock speed, RAM began getting speed ratings."},{"front": "What does DDR stand for when referring to RAM?", "back": "Dual Data Rate"},{"front": "Describe DDR-SDRAM.", "back": "It features 184 Pin DIMM and a single notch on the bottom of the stick."},{"front": "What is the speed formula for DDR-SDRAM?", "back": "Take the motherboard speed and double it, then multiply by 8."},{"front": "Describe DDR2 RAM.", "back": "Features a 240 Pin DIMM, with a single notch on the bottom of the stick."},{"front": "Describe DDR3 RAM.", "back": "Featured a 240 Pin DIMM, and a single notch in the bottom of the stick."},{"front": "What is the speed formula for DDR3?", "back": "Take the motherboard speed, quadruple it, then double it, then multiply by 8."},{"front": "Describe RAMBUS RAM.", "back": "The first 'double pump' RAM, with 184 Pins. You had to install it in pairs, and fill any open RAM ports with CRIMM. (Continuity RIMM)"},{"front": "What RAM goes in a laptop?", "back": "SODIMM Ram (Small Outline DIMM). Runs at the same speeds as desktop RAM, but usually with lower capacity."},{"front": "What are the typical Pin sizes for SODIMM RAM?", "back": "100, 144, 200. And 204, but 204 is unique to DDR3."},{"front": "True or False: multiple sticks of RAM in a sigle channel can have different speeds and capacity.", "back": "False. In the same channel, RAM must be the same speed and capacity. However, RAM do not have to be the same speed and capacity if they are in different channels."}];
+      var biosArray = [{"front": "what is a BIOS?", "back": "A piece of firmware that lives on a chip on your mobo that allows you to adjust system settings."}, {"front": "What does BIOS stand for?", "back": "BIOS stands for Basic Input Output Services."}, {"front": "What is the term for upgrading your BIOS?", "back": "Flashing."}, {"front": "What does CMOS Setup stand for? And what does it do?", "back": "CMOS stands for Complimentary Metal-Oxide-Semiconductor Setup. It stores a small amount of changable information about your BIOS."}, {"front": "What does a BIOS POST stand for?", "back": "Power-On Self Test that is initiated when the power button is pressed on a system unit."}, {"front": "What is the name of the wire running from the power supply to the CPU?", "back": "The Power-Good Wire."}, {"front": "What are BEEP codes?", "back": "When trying to start a computer, but no video is coming through, you can attach a peizo-electric speaker to the motherboard to hear audible tones that will help diagnose the issue."}, {"front": "What is a POST Card?", "back": "A digital readout attached to a motherboard to give hexidecimal codes referring to any errors the motherboard my experience during its POST. Each motherboard has different codes, and the motherboard manual must be referenced to understand the meaning behind the code."}, {"front": "How do you enter BIOS setup?", "back": "Press and hold either Tab, F2, or Escape during bootup. This differs depending on motherboard."}, {"front": "What is the difference between BIOS Supervisor and BIOS User passwords?", "back": "BIOS Supervisor passwords are asked for when anyone attempts to log into BIOS Setup. BIOS User passwords are asked for when the computer boots, before the windows login screen."}];
+      var moboArray = [{}];
+      var powerArray = [{}];
+      var hardDriveTechArray = [{}];
+      var implementingHardDrivesArray =[{}];
+      var peripheralsArray = [{}];
+      var buildingPCArray =[{}];
+      var displayTechArray =[{}];
+      var networkingArray = [{}];
+      var lanArray = [{}];
+      var wirelessArray = [{}];
+      var internetArray = [{}];
+      var portableComputingArray = [{}];
+      var printersArray = [{}];
+      var mobileArray = [{}];
+      
+      //Now lets get rolling
+      function generate() {
+          //first thing is first, lets find out what was checked
+          if ($("#visibleComputer").prop("checked")){
+              //if it was checked, add it to the allTopicsArray of questions
+            allTopicsArray = allTopicsArray.concat(visibleComputerArray);
+             //message console to see what type of questions are being added.
+            console.log("Adding Visible Computer Questions.");
+          } 
+          if ($("#microprocessors").prop("checked")) {
+            allTopicsArray.concat(microprocessorArray);
+            console.log("Adding Microprocessor Questions.");
+          }
+          if ($("#ram").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(ramArray);
+            console.log("Adding RAM Questions.");
+          }
+          if ($("#bios").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(biosArray);
+            console.log("Adding BIOS Questions.");
+          }
+          if ($("#motherboards").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(moboArray);
+            console.log("Adding Motherboard Questions.");
+          }
+          if ($("#powerSupplies").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(powerArray);
+            console.log("Adding Power Supply Questions.");
+          }
+          if ($("#hardDriveTech").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(hardDriveTechArray);
+            console.log("Adding Hard Drive Tech Questions.");
+          }
+          if ($("implementingHardDrives").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(implementingHardDrivesArray);
+            console.log("Adding Implementing Hard Drives Questions.");
+          }
+          if ($("#peripherals").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(peripheralsArray);
+            console.log("Adding Peripheral Questions.");
+          }
+          if ($("#buildingPC").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(buildingPCArray);
+            console.log("Adding Building a PC Questions.");
+          }
+          if ($("#displayTech").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(displayTechArray);
+            console.log("Adding Display Tech Questions.");
+          }
+          if ($("#essentialNetworking").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(networkingArray);
+            console.log("Adding Networking Questions.");
+          }
+          if ($("#lan").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(lanArray);
+            console.log("Adding LAN Questions.");
+          }
+          if ($("#wireless").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(wirelessArray);
+            console.log("Adding Wireless Internet Questions.");
+          }
+          if ($("#internet").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(internetArray);
+            console.log("Adding Internet Questions.");
+          }
+          if ($("#portableComputing").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(portableComputingArray);
+            console.log("Adding Portable Computing Questions.");
+          }
+          if ($("#printers").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(printersArray);
+            console.log("Adding Printer and Multifunction Devices Questions.");
+          }
+          if ($("#mobile").prop("checked")) {
+            allTopicsArray = allTopicsArray.concat(mobileArray);
+            console.log("Adding Mobile Solutions Questions.");
+          }
+          //convert allTopicsArray to a string, to make parsing easier
+          JSON.stringify(allTopicsArray);
+          //lets see thos object objects
+          console.log("All Topics: " + allTopicsArray);
+          //call function to show first card
+          firstCard();
+      }
+      function firstCard(){
+          //console message to ensure proper performance
+          console.log("Let's Do This!");
+          //show the card section
+         $("#currentCard").show();
+          //randomly select an index for our current card
+         currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+          //hide category selector
+         $("#categorySelector").hide();
+          //show Answer button
+         $("#showAnswer").show();
+         //set current card from allTopicsArray based on the card index created a moment ago
+         currentCard = allTopicsArray[currentCardIndex];
+         //create variable to target card div
+         var div = document.getElementById("currentCard");
+         //append front of card for display
+         div.innerHTML += currentCard.front;
+      }
+      function showAnswer(){ 
+          //console message to ensure proper performance
+        console.log("Show me the Answer")
+         //create div variable
+         var div = document.getElementById("currentCard");
+         //clear current card
+         div.innerHTML = "";
+         //append answer
+         answer();
+      }
+      function answer(){
+          //create div variable
+         var div = document.getElementById("currentCard");
+          //append back to card display area
+         div.innerHTML = currentCard.back;
+         //manipulate button visibility
+         $("#showAnswer").hide();
+         $("#showQuestion").show();
+         //$("#nextCard").show();
+         $("#correct").show();
+         $("#incorrect").show();
+      }
+      function showQuestion() {
+          //hide question button
+          $("#showQuestion").hide();
+          //show answer button
+          $("#showAnswer").show();
+          //create variable for div
+        var div = document.getElementById("currentCard");
+         //clear div contents
+         div.innerHTML = "";
+         //append the question
+         question();
+      }
+      function question(){
+          //create variable for div
+        var div = document.getElementById("currentCard");
+          //append question to card display
+         div.innerHTML = currentCard.front;
+      }
+      function correct() {
+          numCorrect++;
+          nextCard();
+      }
+      function incorrect() {
+          numIncorrect++;
+          var div = document.getElementById("currentCard");
+        div.innerHTML = "";
+        if (allTopicsArray.length <= 0) {
+            var div = document.getElementById("currentCard");
+            div.innerHTML = "";
+            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."   
+        } else if (allTopicsArray.length > 0){
+            currentCard = {};
+            currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            $("#showAnswer").show();
+            currentCard = allTopicsArray[currentCardIndex];
+            var div = document.getElementById("currentCard");
+            div.innerHTML += currentCard.front;
+        }
+      }
+      function nextCard(){
+          //
+        var div = document.getElementById("currentCard");
+        div.innerHTML = "";
+        allTopicsArray.splice(currentCardIndex, 1);
+        if (allTopicsArray.length <= 0) {
+            var div = document.getElementById("currentCard");
+            div.innerHTML = "";
+            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."   
+        } else if (allTopicsArray.length > 0){
+            currentCard = {};
+            currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            $("#showAnswer").show();
+            currentCard = allTopicsArray[currentCardIndex];
+            var div = document.getElementById("currentCard");
+            div.innerHTML += currentCard.front;
+        }
+      }
+    </script>
+</body>
+</html>
