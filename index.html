@@ -35,6 +35,8 @@
             background-color:darkgoldenrod;
             border: 1px dashed black;
             margin-bottom: 0px;
+            width: 70%;
+            margin-left: 15%;
         }
         #currentCard {
             background-color: mediumseagreen;
@@ -47,10 +49,59 @@
         #buttonBar {
             width: 100%;
             height: 100px;
-            background-color: blueviolet;
+            background-color: skyblue;
         }
         #allOrNone {
             margin-bottom: 10px;
+        }
+        #selectAllTopics {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #selectNoTopics {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #generateFlashCards {
+            background-color: black;
+            color: yellow;
+            border: 2px solid yellow;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #showAnswer {
+            background-color: yellow;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #showQuestion {
+            background-color: yellow;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #correct {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #incorrect {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -62,7 +113,7 @@
         </div>
         <div id="categorySelector">
             Please choose from the following sections:
-            <fieldset id="checkboxes">
+            <form id="checkboxes">
                 <br>
                 <div>
                     <input type="checkbox" id="visibleComputer" name="visibleComputerCheckbox">
@@ -136,13 +187,13 @@
                     <input type="checkbox" id="mobile" name="mobileCheckbox">
                     <label for="mobile">Understanding Mobile Devices</label>
                 </div>
-            </fieldset>
+            </form>
             <div id="allOrNone">
-                    <a rel="checkboxes" href="#select_all"><button>All Topics</button></a>
-                    <a rel="checkboxes" href="#select_none"><button>No Topics</button></a>
+                    <a rel="checkboxes" href="#select_all"><button id="selectAllTopics">All Topics</button></a>
+                    <a rel="checkboxes" href="#select_none"><button id="selectNoTopics">No Topics</button></a>
                 </div>
             <div>
-                <button type="submit" onclick="generate()">Generate Flash Cards</button>
+                <button id="generateFlashCards" type="submit" onclick="generate()">Generate Flash Cards</button>
             </div>
         </div>
         <div id="currentCard"></div>
