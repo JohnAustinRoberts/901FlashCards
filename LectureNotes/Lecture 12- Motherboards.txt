@@ -19,3 +19,29 @@ Form Factors-
  -Developed by Intel in the late 1990s
  -Replaced the AT form factor, and that's the world we live in today.
 
+
+ATX and ITX Motherboards
+-What kept ATX around so long?
+  -it was free, Intel pushed it as standardized
+  -manufacturers backed it, and so there hasnt been a shift in a while
+-Full Size ATX Motherboard-
+  12x9.6 inches
+  AT form factor only had little holes for individual items
+  brought about the I/O Area (Input/Output Area) faceplate with a set size
+-ATX also set the standard size for Power Supply
+
+4 Types of ATX cards
+-Standard ATX
+    
+-Micro ATX
+
+-Micro ATX
+
+-Flex ATX
+ -Is a 'Small Form Factor'
+ -brought about the ideas for small systems mostly used for single purpose items (Point of Sale Terminals, Home theater systems, etc.)
+ -
+
+ITX
+ -There is no standard for ITX
+ -
