@@ -216,6 +216,7 @@
         </div>
     </div>    
     <script type="text/javascript">
+      //set ready function for allTopics/NoTopics
       $(document).ready( function() {
           //All topics
           $("A[href='#select_all']").click( function() {
@@ -276,72 +277,123 @@
              //message console to see what type of questions are being added.
             console.log("Adding Visible Computer Questions.");
           } 
+          //was microprocessors checked?
           if ($("#microprocessors").prop("checked")) {
-            allTopicsArray.concat(microprocessorArray);
+            //if it was, add the microprocessor questions to the full array
+            allTopicsArray = allTopicsArray.concat(microprocessorArray);
+            //console log that we've added these questions
             console.log("Adding Microprocessor Questions.");
           }
+          //was ram checked?
           if ($("#ram").prop("checked")) {
+            //add ram questions to full array
             allTopicsArray = allTopicsArray.concat(ramArray);
+            //console log that we are adding these questions
             console.log("Adding RAM Questions.");
           }
+          //was BIOS checked?
           if ($("#bios").prop("checked")) {
+              //add bios questions to full array
             allTopicsArray = allTopicsArray.concat(biosArray);
+            //console log we are adding these questions
             console.log("Adding BIOS Questions.");
           }
+          //was Motherboards checked?
           if ($("#motherboards").prop("checked")) {
+              //add mobo questions to full array
             allTopicsArray = allTopicsArray.concat(moboArray);
+            //console log we are adding these questions
             console.log("Adding Motherboard Questions.");
           }
+          //was power supplies checked?
           if ($("#powerSupplies").prop("checked")) {
+              //add power supply questions to full array
             allTopicsArray = allTopicsArray.concat(powerArray);
+            //console log that we are adding these questions
             console.log("Adding Power Supply Questions.");
           }
+          //was hard drives checked?
           if ($("#hardDriveTech").prop("checked")) {
+              //add hard drive tech questions to full array
             allTopicsArray = allTopicsArray.concat(hardDriveTechArray);
+            //console log that we are adding these questions
             console.log("Adding Hard Drive Tech Questions.");
           }
+          //was implementing hard drives checked?
           if ($("implementingHardDrives").prop("checked")) {
+              //add implementing hard drive questions
             allTopicsArray = allTopicsArray.concat(implementingHardDrivesArray);
+            //console log that we are adding these questions
             console.log("Adding Implementing Hard Drives Questions.");
           }
+          //was periperhals checked?
           if ($("#peripherals").prop("checked")) {
+              //add peripherals questions to full array
             allTopicsArray = allTopicsArray.concat(peripheralsArray);
+            //console log that we are adding these questions
             console.log("Adding Peripheral Questions.");
           }
+          //was buildingPC checked?
           if ($("#buildingPC").prop("checked")) {
+              //add buildingPC questions to full array
             allTopicsArray = allTopicsArray.concat(buildingPCArray);
+            //console log that we are adding these questions
             console.log("Adding Building a PC Questions.");
           }
+          //if displayTech is checked
           if ($("#displayTech").prop("checked")) {
+              //add displayTech questions to full array
             allTopicsArray = allTopicsArray.concat(displayTechArray);
+            //console log that we are adding these questions
             console.log("Adding Display Tech Questions.");
           }
+          //is essential networking checked?
           if ($("#essentialNetworking").prop("checked")) {
+            //add networking questions to the array
             allTopicsArray = allTopicsArray.concat(networkingArray);
+            //console log that we are adding these questions
             console.log("Adding Networking Questions.");
           }
+          //is lan checked?
           if ($("#lan").prop("checked")) {
+              //add lan questions
             allTopicsArray = allTopicsArray.concat(lanArray);
+            //console log that we are adding these questions
             console.log("Adding LAN Questions.");
           }
+          //was wireless checked?
           if ($("#wireless").prop("checked")) {
+              //add wireless questions to the array
             allTopicsArray = allTopicsArray.concat(wirelessArray);
+            //console log that we are adding these questions
             console.log("Adding Wireless Internet Questions.");
           }
+          //was internet checked?
           if ($("#internet").prop("checked")) {
+              //add internet questions to array
             allTopicsArray = allTopicsArray.concat(internetArray);
+            //console log that we are adding these questions
             console.log("Adding Internet Questions.");
           }
+          //is portable computing checked?
           if ($("#portableComputing").prop("checked")) {
+              //add it to the array!!
             allTopicsArray = allTopicsArray.concat(portableComputingArray);
+            //console log that we are adding these questions
             console.log("Adding Portable Computing Questions.");
           }
+          //is printers checked?
           if ($("#printers").prop("checked")) {
+              //add in those printer questions
             allTopicsArray = allTopicsArray.concat(printersArray);
+            //console log that we are adding these questions
             console.log("Adding Printer and Multifunction Devices Questions.");
           }
+          //is mobile checked?
           if ($("#mobile").prop("checked")) {
+              //add mobile questions to array
             allTopicsArray = allTopicsArray.concat(mobileArray);
+            //console log that we are adding these questions
             console.log("Adding Mobile Solutions Questions.");
           }
           //convert allTopicsArray to a string, to make parsing easier
@@ -357,7 +409,7 @@
           //show the card section
          $("#currentCard").show();
           //randomly select an index for our current card
-         currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+         currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
          console.log("First card index: " + currentCardIndex);
           //hide category selector
          $("#categorySelector").hide();
@@ -413,81 +465,82 @@
          div.innerHTML = currentCard.front;
       }
       function correct() {
+          //increment the numCorrect variable
           numCorrect++;
+          //remove the current question from the overall lineup
+          allTopicsArray.splice(currentCardIndex, 1);
           nextCard();
       }
       function incorrect() {
+          //increment numIncorrect
           numIncorrect++;
-          var div = document.getElementById("currentCard");
-        div.innerHTML = "";
-        console.log("Incorrect. Clearing Text.");
-        if (allTopicsArray.length = 0) {
-            var div = document.getElementById("currentCard");
-            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."
-            $("#refresh").show(); 
-            $("#correct").hide();
-            $("#incorrect").hide();  
-        } else if (allTopicsArray.length > 1){
-            currentCard = {};
-            currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
-            console.log("Current Card Index: " + currentCardIndex);
-            $("#showQuestion").hide();
-            $("#correct").hide();
-            $("#incorrect").hide();
-            $("#nextCard").hide();
-            $("#showAnswer").show();
-            currentCard = allTopicsArray[currentCardIndex];
-            console.log("Current Card" +currentCard);
-            var div = document.getElementById("currentCard");
-            div.innerHTML += currentCard.front;
-        } else if (allTopicsArray.length == 1) {
-            currentCard = {};
-            $("#showQuestion").hide();
-            $("#correct").hide();
-            $("#incorrect").hide();
-            $("#nextCard").hide();
-            $("#showAnswer").show();
-            currentCard = allTopicsArray[0];
-            console.log("current Card " + currentCard);
-            var div = document.getElementById("currentCard");
-            div.innerHTML += currentCard.front;
-        }
+          nextCard();
       }
+      //Generate the next card
       function nextCard(){
-          //
+        //get a variable handle for currentCard div
         var div = document.getElementById("currentCard");
+        //clear contents of currentCard  
         div.innerHTML = "";
+        //message ourself to ensure success
         console.log("Cleared text for next card");
-        allTopicsArray.splice(currentCardIndex, 1);
-        if (allTopicsArray.length <= 0) {
+        //create an if statement to determine the remaining cards
+        //If there are no cards,
+        if (allTopicsArray.length == 0) {
+            //set handle for if statement
             var div = document.getElementById("currentCard");
+            //display that there are no cards remaining
             div.innerHTML = "Sorry, there are no more cards. Please refresh the page."
+            //display the refresh button
             $("#refresh").show();
+            //hide the other buttons
             $("#correct").hide();
             $("#incorrect").hide();
+            $("#showQuestion").hide();
+        //if there are more than 1 questions remaining, select one at random
         } else if (allTopicsArray.length > 1){
+            //clear the contents of currentCard
             currentCard = {};
-            currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+            //generate a random number based on availiable questions in the array
+            currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
+            if (currentCardIndex < 0) {
+                currentCardIndex == 0;
+            }
+            //cosole log the current card index
             console.log("current card index: " + currentCardIndex);
+            //hide the buttons for correct/incorrect/showQuestion
             $("#showQuestion").hide();
             $("#correct").hide();
             $("#incorrect").hide();
             $("#nextCard").hide();
+            //display showAnswer button
             $("#showAnswer").show();
+            //set the currentCard to the allTopicsArray at the currentCardindex index
             currentCard = allTopicsArray[currentCardIndex];
+            //console log the current card (this will probably just show as object object)
             console.log("current Card " + currentCard);
+            //create a handle for the div currentCard
             var div = document.getElementById("currentCard");
+            //append the text from the front of the card to the currentCard div
             div.innerHTML += currentCard.front;
+          //If there is only 1 question left, use that question  
         } else if (allTopicsArray.length == 1) {
+            //clear the contents of currentCard
             currentCard = {};
+            //hide the buttons for correct/incorrect/showQuestion
             $("#showQuestion").hide();
             $("#correct").hide();
             $("#incorrect").hide();
             $("#nextCard").hide();
+            //display the Show Answer button
             $("#showAnswer").show();
+            //set currentCard to the 0 index of allTopicsArray
             currentCard = allTopicsArray[0];
+            //console log the currentCard
             console.log("current Card " + currentCard);
+            //get a handle for the currentCard div
             var div = document.getElementById("currentCard");
+            //append the front of the currentCard to the div
             div.innerHTML += currentCard.front;
         }
       }
