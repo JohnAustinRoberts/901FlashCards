@@ -8,10 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: skyblue;
+            background-color: #737373;
         }
         #wrapper {
-            background-color: skyblue;
+            background-color: #737373;
             text-align: center;
             margin: 0px;
             padding: 0px;
@@ -19,11 +19,12 @@
         #titleDiv {
             background-color: green;
             border: 2px solid black;
-            width: 80%;
+            width: 60%;
             height: 100px;
-            margin-left: 10%;
-            padding-top: 10%;
+            margin-left: 20%;
+            padding-top: 3s%;
             margin-bottom: 1%;
+            color: orange;
         }
         #title {
             font-size: 25px;
@@ -33,10 +34,10 @@
         }
         #categorySelector {
             background-color:darkgoldenrod;
-            border: 1px dashed black;
+            border: 1px solid black;
             margin-bottom: 0px;
-            width: 70%;
-            margin-left: 15%;
+            width: 60%;
+            margin-left: 20%;
         }
         #currentCard {
             background-color: mediumseagreen;
@@ -45,11 +46,12 @@
             height: 200px;
             color: black;
             margin-left: 10%;
+            border: 1px dashed black;
         }
         #buttonBar {
             width: 100%;
             height: 100px;
-            background-color: skyblue;
+            background-color: #737373;
         }
         #allOrNone {
             margin-bottom: 10px;
@@ -98,6 +100,13 @@
         }
         #incorrect {
             background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #refresh {
+            background-color: blue;
             color: black;
             border: 2px solid black;
             height: 30px;
@@ -203,6 +212,7 @@
             <button id="incorrect" onclick="incorrect()">Incorrect</button>
             <button id="showQuestion" onclick="showQuestion()">Re-Show Question</button>
             <button id="nextCard" onclick="nextCard()">Next Card</button>
+            <button id="refresh" href="johnaustinroberts.github.io/901FlashCards/index.html">Refresh</button>
         </div>
     </div>    
     <script type="text/javascript">
@@ -225,6 +235,7 @@
       $("#nextCard").hide();
       $("#correct").hide();
       $("#incorrect").hide();
+      $("#refresh").hide();
        //set all variables
        //correct counter
       var numCorrect = 0;
@@ -347,12 +358,14 @@
          $("#currentCard").show();
           //randomly select an index for our current card
          currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+         console.log("First card index: " + currentCardIndex);
           //hide category selector
          $("#categorySelector").hide();
           //show Answer button
          $("#showAnswer").show();
          //set current card from allTopicsArray based on the card index created a moment ago
          currentCard = allTopicsArray[currentCardIndex];
+         console.log(currentCard);
          //create variable to target card div
          var div = document.getElementById("currentCard");
          //append front of card for display
@@ -365,6 +378,7 @@
          var div = document.getElementById("currentCard");
          //clear current card
          div.innerHTML = "";
+         console.log("visible text cleared.")
          //append answer
          answer();
       }
@@ -406,19 +420,35 @@
           numIncorrect++;
           var div = document.getElementById("currentCard");
         div.innerHTML = "";
-        if (allTopicsArray.length <= 0) {
+        console.log("Incorrect. Clearing Text.");
+        if (allTopicsArray.length = 0) {
             var div = document.getElementById("currentCard");
-            div.innerHTML = "";
-            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."   
-        } else if (allTopicsArray.length > 0){
+            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."
+            $("#refresh").show(); 
+            $("#correct").hide();
+            $("#incorrect").hide();  
+        } else if (allTopicsArray.length > 1){
             currentCard = {};
             currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+            console.log("Current Card Index: " + currentCardIndex);
             $("#showQuestion").hide();
             $("#correct").hide();
             $("#incorrect").hide();
             $("#nextCard").hide();
             $("#showAnswer").show();
             currentCard = allTopicsArray[currentCardIndex];
+            console.log("Current Card" +currentCard);
+            var div = document.getElementById("currentCard");
+            div.innerHTML += currentCard.front;
+        } else if (allTopicsArray.length == 1) {
+            currentCard = {};
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            $("#showAnswer").show();
+            currentCard = allTopicsArray[0];
+            console.log("current Card " + currentCard);
             var div = document.getElementById("currentCard");
             div.innerHTML += currentCard.front;
         }
@@ -427,20 +457,36 @@
           //
         var div = document.getElementById("currentCard");
         div.innerHTML = "";
+        console.log("Cleared text for next card");
         allTopicsArray.splice(currentCardIndex, 1);
         if (allTopicsArray.length <= 0) {
             var div = document.getElementById("currentCard");
-            div.innerHTML = "";
-            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."   
-        } else if (allTopicsArray.length > 0){
+            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."
+            $("#refresh").show();
+            $("#correct").hide();
+            $("#incorrect").hide();
+        } else if (allTopicsArray.length > 1){
             currentCard = {};
             currentCardIndex = Math.round(Math.random()*allTopicsArray.length);
+            console.log("current card index: " + currentCardIndex);
             $("#showQuestion").hide();
             $("#correct").hide();
             $("#incorrect").hide();
             $("#nextCard").hide();
             $("#showAnswer").show();
             currentCard = allTopicsArray[currentCardIndex];
+            console.log("current Card " + currentCard);
+            var div = document.getElementById("currentCard");
+            div.innerHTML += currentCard.front;
+        } else if (allTopicsArray.length == 1) {
+            currentCard = {};
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            $("#showAnswer").show();
+            currentCard = allTopicsArray[0];
+            console.log("current Card " + currentCard);
             var div = document.getElementById("currentCard");
             div.innerHTML += currentCard.front;
         }
