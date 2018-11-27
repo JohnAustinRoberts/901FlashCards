@@ -1,0 +1,89 @@
+RAM-
+ A Stick of RAM
+
+ Types of RAM-
+  DRAM (Dynamic RAM)
+   -has been improved dramatically over 30 years
+  4 types that have been used
+    -SDRAM (Synchronous DRAM) 
+      -Synchronized to system clock
+      -168 Pin DIMM (Dual inline Memory Modules)
+      -has 2 notches is bottom
+      -Clock Speed meant RAM started getting Speed Ratings
+    -Dual Data Rate SDRAM- DDR-SDRAM
+      -184 Pin DIMM
+      -Single notch
+      -Takes motherboard speed, and doubles it. thus speeding up ram without speeding up motherboard
+      -Take the mobo speed (100Mhz), double it, and that gives you stick speed (200 Mhz) then x8 = PC1600
+    -DDR2 
+      -240 Pin DIMM
+      -single notch, in a different spot than DDR-SDRAM
+      -Take mobo speed (100mhz), double it, (200MHz), double it again (400Mhz) then x8 = PC2 3200 
+    -DDR3 
+      -240 Pin DIMM
+      -Single notch, again in a new spot.
+      -Take mobo speed (100mhz), quadruple it, (400Mhz), double it (800Mhz) then x8 = PC3 6400
+
+Ram Capacity
+-When installing RAM, install them at the same capacity (i.e. 3 4gb sticks, not 2 4gb and one 2 gb.)
+-Reference your mobo handbook, it'll tell you the biggest RAM your mobo can handle
+
+Other Types of RAM
+-Weird RAM
+  -RAMBUS RAM
+    -pretty much faded out
+    -first Double pump RAM
+    -184 Pin RIMM
+    -had to install it in 2s. 
+    -If you had any additional open slots, you had to insert a CRIMM (Continuity RIMM) which is basically a placeholder
+  -Single Sided RAM- Only has memory chips on one side of the stick
+  -Double Sided RAM- Very popular, but have to have a mobo that supports it.
+  -ECC (Parity Memory) RAM - designed with extra chips for error correction. Can only be used on mobos that accept ECC RAM
+    -Mostly for Servers
+  -SODIMM (Small Outline DIMM) - Laptop RAM
+    -Same speeds as regular desktop RAM
+    -usually lower capacity due to physical size
+    -the trick here, is to make sure you have the right size for the laptop. Typical sizes 100, 144, 200 pin varieties.
+    -SODIMM 204 Pin are Unique to DDR3
+  -Always buy brand-name RAM
+
+Installing RAM-
+-Check your Mobo book to see what RAM is compatible
+-Dual Triple or Quad Channel-
+ Requires 2, 3, or 4 sticks
+-every stick in the channel needs to be the same speed and capacity
+-open the clips, insert the RAM stick so that the notch lines up, 
+-push down in the center, until it clicks into place.
+
+Possible issues - 
+  Computer doesn't boot/Can't see RAM you just added. 
+    -May have the sequencing off.
+    -May have different sized RAM sticks
+
+Troubleshooting RAM-
+ a) installation errors
+   How to find out what windows thinks you have installed.
+    Windows>Start>>Computer>Right-Click>Properties
+        Under Installed RAM you'll see what Windows is seeing.
+        If it's not showing correctly, it's probably installed improperly
+    CPU-Z
+      SPD (Serial Presence Detect) Tab
+      Will show exactly what type, speed, bandwidth, manufacturer of RAM
+      This will also show what slots the RAM is in.
+ b) when things go poof!
+    When RAM Dies...
+    MTBF-Mean Time Between Failures is usually measured in decades.
+    Symptoms:
+      Random Reboots,
+      Complete Freezes,
+      Melting Screen, 
+      Blue screen of Death.
+    So what to do? 
+    If you dont have windows 7 or better, look at memtest86 have to boot into it, not a windows program
+        memtest86 is a slooooow process (hours to run)
+        It will return hexadecimal notation if one of your sticks is bad. 
+    If we do have windows 7 or later, 
+      go to control panel > admin tools > windows memory diagnostic > restart now and check for problems
+      aaaaaaaaand wait. 
+    the trick to dealing with bad ram, no one is going to point to a particular stick. It's mostly process of elimination.
+

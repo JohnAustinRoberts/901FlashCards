@@ -1,0 +1,21 @@
+Motherboards-
+
+Form Factors-
+-What are Form Factors?
+ -Standardized set of forms that define the sizes of different PC components, such as size, shape, and connections
+ 
+ -IBM AT Form Factor
+  -IBM built this computer with standardized holes to make everything easier
+  -This was a famous form Factor
+  -Allowed everyone to use the same sizes that they had set, and suddenly, we had the IBM-standardized form Factor
+  -For almost the first 10 years of the computer world, the AT form factor was dominent
+  -didnt ventilate well, didnt specify where to place the CPU, and no low-profile computer processing.
+
+-Riser Card
+ -in an attempt to supplant AT Form Factor, everyone was trying to get lower profiles to shrink overall computer size
+ -an L-shaped port to plug in cards sideways while trying to keep a low profile while still supporting full sized cards.
+
+-ATX Form Factor
+ -Developed by Intel in the late 1990s
+ -Replaced the AT form factor, and that's the world we live in today.
+

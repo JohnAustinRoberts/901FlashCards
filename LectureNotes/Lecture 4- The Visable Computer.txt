@@ -1,0 +1,66 @@
+How Computers Work:
+Step one: Raw Data- 
+Step Two: put it into memory(RAM)
+Step Three: Provide Input
+Step Four: Recieve Output
+Step Five: Return to Storage
+
+
+Primary PC Components-
+Computer Tower with all included hardware: System Unit
+Monitor: Output
+Keyboard: Input
+Mouse: Input
+Speakers: Output (2 speakers-stereo, 2 speakers w/ subwoofer: 2.1, surround sound- 5 speakers w/ subwoofer: 5.1, home theater- 7 speakers w/ subwoofer: 7.1 )
+Printer: Output
+Scanner: Input
+If it's not the system unit, it's a peripheral. All peripherals provide input or Output
+
+External Connections:
+-Ports
+  -universal Serial Bus (USB)
+    -most common Port
+    -used in a variety of peripherals
+  -Ethernet (RJ45)
+    -connects to network
+  -External SATA (ESATA)
+    -almost exclusively for external hard drives
+  -Sony/Phillips Digital Interface (S/PFID)
+    -Usually a fiber optic cable
+    -used for all things audio
+  -Digital Video Interface (DvI)
+    -Primary video output for systems today
+    -Does not carry audio
+  -High-Definition Multimedia Interface (HDMI)
+    -Carries audio and video
+  -Mini audio jacks
+    -3.5mm / 1/8" jacks to directly connect to speakers
+  -Power 
+    -turns on PC
+  -Front Panel Connections 
+    -Convenience Factor
+    -Firewire -competitor to USB, being phased out.
+  Legacy Port Connectors-
+    -Mini-DIN 
+      -round ports (PS2 connectors) - Mouse/Keyboard
+    -D-sub Connections
+      -Serial Port-
+        -9-Pin Male DB connector
+      -Parralel Port
+        -Usually used for printers
+        -25 Pin Female DB connector
+      -VGA
+       -15 Pin Female connector
+       -Carries sound and video
+       -connects to monitor or projector
+
+Inside the PC:
+WEAR AN ESD! (Electro-Static Discharger)
+ -Every Case opens differently
+ -PowerSupply
+  -converts normal power to 5v and 12v 
+ -Video Card
+ -RAM Sticks
+ -Optical Drives (Bluray, DVD, CDROM)
+ -Hard Drives (SSD, HDD)
+

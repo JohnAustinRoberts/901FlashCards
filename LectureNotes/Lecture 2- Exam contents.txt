@@ -1,0 +1,35 @@
+220-901 Exam Contents:
+
+"The Hardware Exam"
+-Hardware 34%
+-Networking 21%
+-Mobile 17%
+-Hardware & Networking troubleshooting 28%
+
+-What do these objectives mean?
+Go to CompTIA.org and download the objectives.
+What to expect to see-
+Hardware- 
+  Explain all kinds of differences between Power Supply, Hard Drives, Motherboards, Video Cards, Monitors, Cables, Printers
+  Its a big deal, time to get studying!
+
+Networking-
+  Phrases people use but dont understand
+  what is ethernet?
+  switches
+  routers
+  80211 networks
+  firewalls
+
+Mobile devices-
+  Laptops (surprise!!)
+  Tablets
+  Cellphones
+  phablets
+  android vs ios vs windows mobile
+  concentrates on the hardware and setup of these devices
+
+Hardware and Network Troubleshooting-
+  takes the first three objectives and makes you fix it.
+  What I do on my day to day
+  

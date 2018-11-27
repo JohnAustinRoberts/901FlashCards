@@ -1,0 +1,167 @@
+What is a CPU?
+Central Processing Unit
+The brain of the computer
+It's all based on micro-architecture
+One set of micro-architecture can be used to make multiple CPUs
+Intel and AMD are the two big CPU manufacturers
+CPU-Z 
+  -Free program to tell you all about your CPU
+
+Microprocessors-
+ CPUs come with a rated speed
+ hertz - times per second
+ System Crystal - little piece of quartz ocillating at a determined speed
+ The CPU have a multiplier, that runs faster than the system crystal on the motherboard
+ this is called a clock multiplier (hence over-clocking...)
+ overclocking can allow you to push the CPU past its rated speed
+
+ Multicore CPUs
+ multiple 'mini'-cpus (cores) inside a single physical chip
+ hyperthreading (intel i7) will virtually duplicate each of these mini-cpus
+ 
+CPU Caches-
+ Cache takes a litle of what we need and makes it more accessible
+
+Process
+ -hard drive > Ram > CPU
+
+Caches-
+-Temporary storage to speed up/help processing by having ready to utilize data
+-Programs live on your Hard drive
+-when you double click on a program, some of the program is copied to RAM, and the CPU is told where to start running the program
+-there is also a little RAM inside the CPU(Static RAM), this is the Cache
+-the more cache you have, the harder it is to find relevant data in the cache
+-the closest one to the cpu is level 1, these are always the smallest, fastest cache
+-the larger cache is called level 2, and runs at about half the speed of a level 1 cache
+-in most systems today, we also have a level 3 cache, which is even larger, and is running usually at around motherboard speed.
+-caching is completely automatic, it depends on the microarchitecture of the CPU
+
+
+
+32 vs 64 bit processing
+-Address Bus-
+ -Usually 64 or 32 bit
+ -32 wires or 64 wires connecting CPU to RAM 
+ -a 32 bit cpu can only address up to 4gb of RAM
+ -in a 64 bit cpu, can address much much more RAM
+ -Most CPUs today can run either 32 or 64. If at all possible, run in 64 bit mode
+   -start > computer > right-click > properties > System type
+
+
+
+CPU Extensions- 
+ -Today, 2 big ones-
+   -Virtualization Support
+    -creating Virtual Computer inside your own Computer
+    -takes a lot of work on the CPU, Usually done in BIOS
+    
+  -Integrated GPU-
+   -Integrates a video card into the CPU, to make for smaller systems, and save on power
+   
+CPU Packages and Sockets-
+-The whole idea of CPU sockets allows for the CPU to be easily upgraded to a better version of the CPU without replacing the motherboard
+-There are several different kinds of sockets, lets go over them.
+ -Num of Pins, Physical Size, Thermal Characteristics, etc, 
+ -All we need to know-
+  -LGA Sockets
+    -Land Grid Array
+    -All Intel CPUs are LGA CPUs
+    -still called ZIF, even though has large cover tray
+    -The pins are actually on the socket with pads (lands) on the chip, some people like these better as they are harder to break installing
+  -PGA Sockets
+    -Pin Grid Array
+    -All AMD CPUs are PGA CPUs
+    -ZIF (Zero Inserfion Force) Sockets - like the one in my pc with the little lift bar
+        Intel- (LGAs)
+            -Intel LGA 775
+            -Made by Intel, with 775 Lands on the CPU
+            -First Mainstream LGA CPU
+            -Ran with DDR2
+            -Started with Pentium 4
+
+            -Intel LGA 1156
+            -Made by Intel, with 1156 Lands on the CPU
+            -First Socket to support Built-in North Bridge
+            -DDR3 support
+
+            -Intel LGA 1366
+            -Made by Intel, with 1366 Lands on the CPU
+            -for more powerful computers
+            -built in memory controller
+            -still had north bridge for PCIE Bus support
+            -Pretty much used only on Core i7
+
+            -Intel LGA 1155
+            -Replaced LGA 1156
+            -Pcs using these were the first with full support on-board graphics
+            -Core i3, i5, i7
+
+            -Intel LGA 2011
+            -Replaced LGA 1366
+            -Started with DDR 3, then DDR4
+            -First system to stop supporting PCI, only PCI Express
+            -Only used on i7 processor
+
+            -Intel LGA 1150
+            -this is mainstream socket
+            -supports multiple CPUs
+            -started with DDR3, and now also does DDR4, and supports an outrageous number of PCIE devices
+
+        AMD- (PGAs)
+            -AM Type Sockets - Mainstream type sockets 
+              -Socket AM2
+                -940 Pins
+                -Hyper-transport capability
+                -Supported DDR2
+              -Socket AM3
+                -941 Pins
+                -Supported DDR3
+              -Socket AM3+
+                -942 Pins
+                -Power and Speed Improvements
+            -FM Type Sockets - Also known as APU (Accelerated Processing Unit), Sockets with graphics capablilities
+              -Socket FM1
+               -905 Pins
+              -Socket FM2
+               -904 Pins
+               -Power and speed improvements
+              -Socket FM2+
+                -906 Pins
+                -Substantially more PCIE support
+
+
+
+How to install the CPU-
+  Ensure your CPU matches the socket and speed of your motherboard
+  Wear your ESD
+  Note the notch that all CPUs have, and line it up with the CPU socket, should drop in with no force
+  Lower lever.
+  Add Thermal Compound to bas of CPU fan, if it's not already there
+  Set fan on top of CPU, lock it into place. 
+  Should be able to pick up motherboard by cooling fan
+  Plug the CPU Fan into Motherboard.
+
+Cooling Your PC-
+  -Fans
+    -CPU fans
+    -Graphic Card fans
+    -Case fans
+    -The trick to cooling is to keep your system cool enough to run well, while balancing sound production from fans
+    -Anytime the connector has 4 cables, you can control the speed of the fan
+    -OEM Fan - (Original Equipment Manufacturer)
+        -Most of the time when you buy a CPU it comes with a fan
+    -Third Party Fan
+        -More cooling than OEM fans, typically larger.
+        -Usually your OEM Fan is good enough.
+    -How to control the fans-
+        -In Motherboard Settings
+        -With third-party utilites
+        -SpeedFan (works on most motherboards)
+  -Liquid Cooling 
+    -been around over 15 years
+    -Passive Liquid Cooling-
+      -The liquid goes through a mount on the CPU, takes the heat, runs through a radiator which cools it down, and then runs it through again
+      -helps for quieter system, with better cooling than a fan system
+      -remember, it works with the same connectivity wise as a fan. 
+    -Active Liquid Cooling-
+      -Like a fridge, pumps refridgerant into your PC

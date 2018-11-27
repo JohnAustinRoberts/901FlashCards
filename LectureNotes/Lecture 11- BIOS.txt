@@ -1,0 +1,74 @@
+What is the BIOS?
+  -Basic Input/Output Services
+  -programming built into the motherboard 
+  -Stored on a ROM chip (read-only) on the motherboard (firmware)
+  -allows the CPU to talk to the hardware attached to motherboard
+  -There is also the CMOS Setup (Complementary Metal-Oxide-Semiconductor Setup)
+    -stores a small amount of changeable info
+  -also has a battery to kep the clock running when the system is turned off
+  -Upgrading BIOS is called Flashing
+  -POST - Power On Self Test
+  -So, we have a system BIOS, on the chip, We also have the POST, and the System Setup
+  -The BIOS recieves a Scan Code from the keyboard each time a key is pressed
+  
+
+What is POST?
+  -when you push power on your computer, the power supply begins to supply power to the various parts of the machine.
+  -but in order to turn on the CPU, there is a wire leading from the power supply to the CPu called 'The Power-Good Wire'
+  -When the power-good wire reaches a certain voltage, the CPU is started. 
+  -When this takes place, the CPU begins a system call to Power-On Self-Test (POST)
+  -The CPU sends a message to each part of the motherboard, asking for responses from peripherals to show them on the system
+  -If the peripheral has no issues, it will come back positive, if there is an issue, it will tell the system there is a problem
+  -Now, POST has to test the video capabilities, and broadcast any errors it may have, this is the first thing you see at startup.
+    -But what if there is an issue with the video?4
+    -Then we need to use BEEP Codes.
+      -this breaks the POST up into 2 pieces (before video is tested, and after video is tested)
+      -You'll need a speaker of some kind, if no speaker is attached to your computer, you'll need a piezoelectric speaker, which connects directly to your motherboard
+      -the issue with BEEP codes is that the beeps are not standardized. Now there is pretty much just a no video card beep.
+      -The only other BEEP code that is common is when RAM is not installed properly. This is an ongoing beeping message.
+  -So what if you turn it on, and nothing happens?
+    -POST card
+        -readouts are hexidecimal, and mean differnt things for dfferent bios'
+        -some mobos have a built in POST card
+        -these will help you to find out what the issue is from holding up your startup.
+        -POST cards should be 100$ tops.
+        -The trick with the POST Card is finding out what the codes mean to your BIOS
+          -Find the BIOS from your motherboard book and search online for the POST codes, and BEEP Codes
+  -On-Screen errors
+    -press tab or esc to see actual post and not splash Screen
+    -will show BIOS Info, CPU info, Memory Info, and aany error messages
+    -if you have an error, you now have a choice, you can do a halt on all errors(press f1 to continue), or bypass the errors.
+
+System Setup-
+  -Configuring and Changing BIOS settings
+  System/CMOS Setup-
+    -press either DEL of F2 on boot to get to BIOS settings
+    -Passwords:
+      -Supervisor comes up anytime anyone tries to get into the system setup
+      -User comes up everytime someone boots the computer, a password even before windows login
+    -Boot Order-
+      -Can set the order to boot from here
+    -Fans-
+      -Some BIOS will allow you to control fan speed
+    -Then you can save and exit or exit discarding changes. 
+
+Troubleshooting BIOS-
+ -Some of the things we do to break BIOS
+  -We have adjusted settings in a way to cause issues
+  -Get back into System Setup, and look for Restore to Optimal Defaults/Base Defaults
+  -If an admin password or user password is lost
+    -You need to clear the CMOS Jumper
+      -remove the jumper, and short it by plugging it in to the adjacent prongs. This will clear the CMOS memory and Passwords
+  -If your clock keeps running slow
+    -Your CMOS battery is failing, and needs to be replaced
+  -Updating and flashing BIOS
+    -Incredibly dangerous if it fails midway
+    -Several ways to do it
+      -In the System Setup
+      -From the motherboard manufacturer's website
+      -or using motherboard software
+    -Ways to get around
+     -Dual BIOS Motherboards
+       -have two ROM chips with BIOS in case of poor flashing. There is a backup ROM chip to boot from if needed.
+     -Some advanced motherboards allow you to backup BIOS to a USB, and will rewrite the BIOS.
+
