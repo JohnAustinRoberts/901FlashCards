@@ -1,0 +1,75 @@
+Electricity-
+  -best way to understand Electricity is to think about water
+  -think of voltage as water pressure in the line 
+  -how much water is flowing (amperage/amps) think size of the pipe
+  -need both voltage and amperage to create watts
+  -volts x amps = watts
+  -when it only flows in one direction its a direct current (DC)
+  -If it flows back and forth, thats Alternating Current (AC)
+  -Ac runs long distances very well
+  -DC is easier to get to work
+
+Power Supplies
+ -Yellow wires are 12 volts, Red wires are 5 volts. DO NOT MIX THEM UP.
+ -ATX power supply are labeled in watts, that's their maximum watts showing how much they can support
+ -ATX power supply use soft power, which means, your power is not a phsical switch on the power supply, we have a jumper on the mobo itself, and that's the power switch.
+ -There is a cutoff switch on the back, but that's very rarely used.
+ -There is a voltage switch on the back to swap between 110 and 220 volts, depending on if your in America, or another country
+ -P1 Connector-
+   -2 sizes
+    -20 pin
+    -24 pin
+ -Supplementary Power Connector
+  -4 or 8 pin
+  -On most motherboards, the 4 pin will work even if there is a 8 pin power slot on the motherboards, though on some, you will need a true 8pin Connector
+ -PCI-E Power Connector
+  -used exclusively for PCI-E video cards
+  -8 pin modules
+ -SATA Connectors
+  -Used for hard drives and optical media
+ -Mini Power Connector
+  -Not used often, but some things need them
+  -There is a ridge on the top, to ensure you put it in correctly
+ -Molex Connector
+  -mainly used for fans and supplemental add ons
+  -also keyed so it can't go in backwards
+
+Niche Power Supplies and Features-
+   -Modular Power supply 
+     -Instead of pre-installed wires, there are tons of ports and external connector wires to eliminate excess wires in your system unit
+   -Small form factor power Supplies
+     -this is a smaller size power supply to support small systems
+     -still has the same connectors as ATX full size power supply
+
+Choosing a power supply
+  -things to consider
+    -Efficency 
+      -good power supplies will have efficiency greater than 90%
+      -anything below 80% is garbage
+    -Rails
+      -taking 110 or 220 volts AC from the wall and outputs it to 12, 5, and 3.3 volts DC
+      -this requires a lot of switching and transformers, and can cause issues where one connection will not connect, particulaly on poisitve 12 volt power
+      -to get around thtis they create rails,  these are electrical circuitry that isolate different types of power outputs so that one doesnt get sacrificed to the other, increasing effeciency
+      -most important power supply is positive 12 volts
+      -good power supplies quote their efficiency at higher temps
+      -to see the number of rails, look at the power supply, and look at the display
+
+Troubleshooting Power Supplies
+  -Power supplies are one of the first thing to go on a computer
+  -Unplug the power supply during smoke
+  -when there is a catastrphic failure, the motherboard is usually also fried
+  -when a power supply is dying slowly, we have a few ways to test the system
+    -Voltmeter
+      -can set the volts to the higher setting than your 12 volt
+      -find a wire from the power supply that has a black ground and yellow wire
+      -testing on the 12 volt is the best, it's the biggest voltage and subject to the most change
+    -Paperclip
+      -find the green wire(powergood wire) on a PCI connector, and insert the paperclip into that port, and any black ground on the PCI connector
+    -Voltage Tester
+      -these plug into a P1 connector, and then press the button, and it will display good voltage, but it's only lights and we don't know the limitations of the Tester
+  -If it's not turning on, 
+    -Is it plugged in to the wall?
+    -Is the back switch flipped?
+    -Is it the voltage switch in the wrong way?
+    -are all the connections inside the system unit connected properly?
+

@@ -1,0 +1,223 @@
+CD Media-
+  -CD Optical Media
+    -back in 1970s CDs were created as a replacement to vinyl record
+    -CDDA (Compact Disc Digital Audio)
+        -Stored everything in lands and pits on the back of the CD
+        -Speeds
+          -The first CDs started at a rated speed, newer cd's read at a multiplier (52x can read at up to 52 times faster than the original speed)
+          -A CD-R will have 2 speeds listed, one for reading, one for writing
+          -A CD-RW will have a read speed, a write speed, and a re-write speed.
+        -Designed to store music, so measured in time 
+          -Longest album length was about 74 minutes (the longest version of Beethoven's 9th they could find.)
+        -Most of the data is more towards the label side
+        -The issue this caused when looking to instead transfer data was the way the CD stored information
+          -It was stored in a spiral, and was broken into 'tracks' similar to how a songs would be on a vinyl record
+        -Organization called ISO (European Industry Standards Organization) came up with ISO 9660
+          -This took the CDDA format and created a format for storage for files and storage
+          -You would have to reformat the CDDA to a CD-ROM (Compact Disc Read Only Memory)
+          -Used as a distribution media primarily in the early days of CD-ROM
+          -They then realized they could get extra space in the center
+            -The first generation of CD-ROM stored about 650mb of data (74 minutes)
+            -once they added to that space, they were able to increase that size to 700mb (80 minutes)
+          -Downside is Read only, so You could only read from the disc, not write to it (i.e. saving anything)
+        -CD-R is born
+          -CD-R (compact Disc Recordable)
+          -These are burn once type of optical media
+          -same size as CD-ROMs but able to be written to once
+          -A CD-R optical drive would have 2 lasers, one for reading, one for writing. 
+        -CD-RW (Compact Disc ReWritable)
+          -These can be read, burned, erased, and burned again 
+        
+DVD Media-
+  -DVD originally stood for Digital Video Disc, but now stands for Digital Versital Disc
+  -This was an optical media with the same size as a CD, but designed to store Video
+  -From day 1, capacity was determined in gigabytes
+    -Single sided
+      -Carries data on only one side
+      -Average Capacity: 4.7GB
+    -Dual sided
+      -Carries data on both sides of the disc
+      -Average capacity: 9.4GB
+    -single layer
+      -Only has one layer of data
+    -dual layer 
+      -each layer is seperated by a half mirror, and must be read by an optical drive with two lasers, on to see on each side of the mirror
+      -doubles potential storage
+    -All these options created a need for a coding system to show what type of drive each disc was compatible with.
+      -DVD 9 
+        -Single sided dual layer
+      -
+      -
+      -
+      -
+      -
+      -
+  -DVDs easily can hold and transfer data
+    -this is what the computer calls a Compact Disc File System (CDFS)
+    -can use a program called El Torrito to create a boot drive on a DVD or CD
+      -can then boot off either DVD or CD (these are called Live CDs)
+    -The actual disc is called DVD-ROM
+    -DVD+R
+      -Write once, read as many times as you want
+      -the + caused an issue, with compatibilty issues as there were also DVD-R.
+      -Has the same capacity as DVD
+    -DVD+RW
+      -Had worse incompatiblity issues than DVD+Rs, but thats mostly sorted out these days
+      -Could read, write, erase, and write again
+    -DVD-RAM
+      -it comes in a cartridge
+      -you needed to have a specific drive to read the cartridges
+  -Region Codes
+    -Since DVDs were designed with movie distribution in mind, DVDs that have movies have region codes built into them
+    -DVDs sold in different Countries have different Region codes. (I.e. USA is Region Code #1)
+    -DVD players also have region codes, in an attempt to dissuade people from buying DVDs from overseas
+  -DVDs come in speeds
+    -DVD player will have one speed
+    -DVD-R will have read and write speed
+    -DVD-RW will have read write and rewrite speeds 
+
+Blu-ray Media
+  -Allowed more storage and therefore much higher video resolution.
+  -Most common sizes are 25gb or 50gb (Single sided single layer or single sided dual layer)
+  -Blu-ray follows region codes 
+  -Requires High Bandwith Digital Content Protection (HDCP)
+    -This means that to play a blu-ray at full resolution, you'll need HDCP compliant equipment
+  -Blu-ray Recordable (BD-R)
+    -It is required to use UDF format to write to blu-ray
+      -this writes in a more concise fashion
+  -Blue-Ray Recordable/Erasable (BD-RE)
+    -Basically blu-ray read write
+
+Universal Serial Bus-
+  -USB! USB! USB!
+  -Everything uses USB!
+  -Been around over 15 years
+  -Types of USB
+    -USB 1.0 1.5MBPS - (for keyboards and mice)
+             12MBPs - (for everything else)
+    -USB 2.0 480 MBPS
+    -USB 3.0 5GBPS
+  -USB-A
+    -The USB is permenantly attached to a peripheral at one end, with an open dongle at the other
+    -Points towards the PC
+    -downstream connector
+  -USB-B
+    -This connects to the device
+    -Points away from the PC
+    -upstream connector
+    -Multiple different types, all run at same speeds (except 3.0)
+      -USB-B Full size Connector
+        -square plug with rounded top corners and a rectangle port in the middle
+        -The original USB-B connector
+      -USB-B Mini Connector
+        -PS3 Charger
+      -USB-B Micro Connector
+        -PS4 Charger
+      -USB 3.0 B Connector 
+        -This it the funky wavy connector on your external hard drive
+  -USB HUB
+    -External USB hubs can be used to connect additional devices, up to 127 devices on one hub!
+    -Try to buy a powered hub, since USB devices drain power to function
+
+-USB In-Depth Dive
+  -Different Versions of USB
+    -USB 1.1 
+      -Came out with 2 speeds
+        -Low Speed USB
+          -1.5 Mbit/s 
+        -Full Speed USB
+          -12 Mbit/s 
+      -Recommended maximum caable length of 3 meters
+    -USB 2.0
+      -480 Mbit/s
+      -Recommended cable length 5 meters
+      -known as high-speed USB
+    -USB 3.1 Gen 1
+      -Runs at 5 Gigabits/s
+      -Recommended Cable Length 3meters
+      -Known as Superspeed USB
+    -USB 3.1 Gen 2
+      -Runs at 10 Gigabits/s
+      -Recommended Cable Length 3 meters
+      -Known as Superspeed+ USB
+  -Different connectors
+    -Know on sight
+      -USB-B original
+      -USB-A
+      -USB Micro
+      -USB Mini
+      -USB 3.0 Micro B Connector
+      -USB 3.0 A Connector
+      -USB-C
+  -Different color ports (these are not standards, but general guidelines)
+    -Black ports = 1.0/2.0 Speeds 
+      -ideal for slower devices
+    -Blue port = 3.0 USB
+    -Red port = USB power delivery specification 
+      -ideal for charging or devices that require a large amount of power
+
+Flash Memory Overview
+  -need to be able to visually recognize all of the different flash medias
+    -USB thumb drives store flash media
+    -Compact Flash (CF)
+      -Invented in 1994 by SanDisk
+      -Still around today
+      -first one that was widely used
+    -Smare media card (SMC)
+      -came out in 95 by toshiba
+      -seen in cameras most often
+    -xD Picture Card (XD)
+      -mainly used in olympus and fujifilm cameras
+    -Secure Digital (SD)
+      -came out in 99 from Panasonic
+      -took over as best format for flash Memory
+    -Mini Secure Digital (MiniSD)
+      -Smaller SD card
+    -Micro Secure Digital (MicroSD)
+      -Smallest SD card
+
+Firewire and other Connections
+  -Occasionally we'll see older connectors
+  -Firewire 
+    -came around in early 2000s
+    -still seen in some video cameras
+    -Firewire acts a lot like USB
+    -2 Speeds
+      -400 megabits/s
+        -Known as Firewire 400 
+      -800 megabits/s
+        -Known as Firewire 800
+    -6 connector firewire 400
+      -most common firewire
+    -4 connector 
+      -smaller firewire port
+      -worked primarily with video cameras
+    -Standard cable length of 4.5 meters
+   -Serial ports
+      -The oldest connection in PCs
+      -Serial connection
+        -has 9 pins
+        -Is d shaped
+        -is called a DB-9 connection
+      -Most Cisco routers used what is called a Yost or Rollover Cable
+        -This has an RJ45 connector on one end and a Serial connector on the other 
+      -Unlike USB or Firewire, you have to assign a value to your serial port, known as your Comport. 
+        -You must have your comport number to talk through the serail port.
+      -To check if connection worked
+        -Open device manager
+        -Open ports (COM & LPT)
+        -See if you see a Port
+        -Fire up PuTTY
+        -Click Serial
+        -Click Open
+        -Hope for success message
+    -Parallel Ports
+      -Parallel ports are just as old as serial ports
+      -DB-25 connector (the 25 pin d shaped connector)
+      -Centronics Connector
+        -Big connetor with what looks like an hdmi pin array inside the large parallel port shaped connector
+        -Pretty much only used for printers
+      -If you see a parallel port, the equipment is very old, and should probably be upgraded.
+
+Keyboards and Mice-
+  -

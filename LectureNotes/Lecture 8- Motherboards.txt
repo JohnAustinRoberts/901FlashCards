@@ -39,9 +39,106 @@ ATX and ITX Motherboards
 
 -Flex ATX
  -Is a 'Small Form Factor'
- -brought about the ideas for small systems mostly used for single purpose items (Point of Sale Terminals, Home theater systems, etc.)
+ -brought about the idea for small systems mostly used for single purpose items (Point of Sale Terminals, Home theater systems, etc.)
  -
 
 ITX
  -There is no standard for ITX
- -
+ -ITX systems are designed for low power systems
+ -ITX systems require a smaller power supply, known as a flex-atx or itx power supply
+ -Three types to know
+  -Mini-ITX
+    -170x170mm
+    -similar to ATX, uses I/O area, just not the same size as ATX
+  -Nano-ITX
+  -Pico-ITX
+    -incredibly small
+
+What the fuck is a chipset? Are we playing poker or something? Nah, but hopefully that caught you off guard!
+
+Chipsets-
+  -Before there were Chipsets
+   -Old motherboards were covered in chips. Each one were a single function chip, which made motherboards incredibly expensive.
+   -Over time, we began to get VLSA (Very Large Scale Integration Technologies) which consolidated these tasks.
+   -Remember the candy.
+  -Intel 440BX Chipsets
+    -a motherboard that integrated a lot of the functions from discreet chips to a two chip group, defining the term chipset
+  Memory Controller-
+    -Manages transfer of data between RAM and CPU
+    -Northbridge - generally, whoever is handling the memory controlling is the northbridge
+      -old pci expansion slots
+      -higher speed inputs
+    -Southbride - usually deals with slower stuff, (basic I/O, etc)
+        -keyboard
+        -mouse
+  These chips are intended to work together, and with a specific type a CPUs. 
+
+  Typically, as newer technologies were brought in, they were added to the northbridge, pushing older things to the southbridge
+Super I/O chip handles legacy connections
+
+on most modern cpus, memory controller is added into the CPU, ridding the need for a dual chip set. Instead we tend to see a single chip scenario with a support chip for legacy items, raid controllers, and other weird things.
+
+The chipset is what truly defines the value of a motherboard.
+
+The Expansion Bus-
+  Expansion slots to plug in things like graphics cards, hard drive controllers, etc.
+  Only need to know about a few for the A+
+    -PCI- Peripheral Connection Interface
+      -Came out in mid-90's, designed by Intel
+      -32 bit connection running at 33 or 66 mhz
+      -king of the expansion bus world for nearly a decade
+    -PCI-X
+      -PCI on steroids
+      -64 bit connection running at 133 mhz
+    -Mini-PCI
+      -32 bit connection at 33mhz
+      -very distinct 100 pin connector
+    -PCI-E
+      -Uses Serial Communication
+      -Runs at 2 gigabits per second or 4 gigabits per second
+      -By One/One Lane PCIE
+        -Little short connector
+        -each lane is a line of communication
+      -If you need to transmit more data, add more lanes
+      -By 16/16 Lane
+        -much longer port, usually with a clip
+      -If you want to determine the speed of PCI-E, take the speed of the lane times the number of lanes
+    -Mini-PCI-Express
+      -52 Pin connector that supports up to two lanes
+      -very common in laptops
+Parallel vs Serial Communication
+ -Parallel communication transmits a signal across multiple wires which then must be delivered, and can cause latency
+ -Serial communicaion uses one wire, at a very high speed, reducing latency  
+
+
+Touring the Motherboard-
+    -Make sure your motherboard comes with a book or the disc with drivers
+    -you'll also have several extra cables
+    -and most importantly, the I/O Shield, which is unique to each model of motherboard
+
+  -Voltage Regulator Modules (VRM)
+   -regulates votage across the systems
+   -generates a lot of heat
+   -connected to chipset via heat-pipe
+  -CMOS Clear
+    -labeled CLRTC
+  -You can find the map of the chips on the motherboard schematic, usuallly towards the front of the motherboard manual
+
+Installing a Motherboard-
+  -Read the manual
+  -ensure you have the driver disk
+  -
+  -BEFORE installing into the case-
+    -Put on an ESD
+    -Install CPU, CPU Fan, RAM, Video Card
+    -Connect the motherboard to a monitor and power supply and test the system to ensure it is working.
+      -it's easier to fix a poorly mounted CPU fan, or trouble shoot any other issues before the board is in the case
+  -Install I/O area to Case by pressing from the inside
+  -install motherboard into case, lining up the I/O area and lining up the screw holes in the motherboard with the stand-outs
+    -If a motherboard comes with electric resistant washers, install them between the screw and motherboard. 
+  -connect front panel switches (power on/ reset/ power light, etc) to motherboard
+  -connect front panel connections (audio/usb/mic/etc)
+  -the lights for power and Hard drive activity must be plugged in the proper way or nothing will display
+  -fire that shit up!
+    -we haven't installed hard drives or anything else, so we'll proc an error, but seeing the error means victory!
+

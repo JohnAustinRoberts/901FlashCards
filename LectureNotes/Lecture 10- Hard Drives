@@ -1,0 +1,381 @@
+Hard Drive Disks-
+    -The Language of Drives
+        Decimal and Binary Prefixes-
+        In the IT world, we use a lot of decimal prefixes. 
+            -CPU we call a 3.2 ghz CPU, a 6.0Gb/s SATA 3 connector, etc.
+        -for capacity with hard drive, we use gigabytes and terabytes
+        -SI Units
+            -Kilo (K) = 1000
+            -Mega (M) = 1000 K
+            -Giga (G) = 1000 M
+            -Tera (T) = 1000 G
+            -Peta (P) = 1000 T
+            -Exa  (E) = 1000 P
+
+        Technically these calculations are not accurate.
+          -In the computer world, we use binary values.
+            -If we have a 4 bit addressing system, we would have 0.0.0.0 or 1.1.1.1 or a combination of on or off. to figure the number of possible configurations we use 2 to the power of how long the address is (2^4 here)
+            -In the computing world, we use much larger values than 4, so we break it into groups of 10
+            -2^10, 2^20, 2^30, etc.
+            -This gives us a different kind of value (IEC Binary Prefixes)
+                -IEC Binary Prefixes
+                -Kibi (KI) = 2^10 = 1024
+                -Mebi (MI) = 2^20 = 1024 KI
+                -Gibi (GI) = 2^30 = 1024 MI
+                -Tebi (TI) = 2^40 = 1024 GI
+                -Pebi (PI) = 2^50 = 1024 TI
+                -Exbi (EI) = 2^60 = 1024 PI
+
+        SI vs ICE 
+            Kilo = 1000
+            Kibi = 1024
+            Mega = 1,000,000
+            Mebi = 1,048,576
+            Giga = 1,000,000,000
+            Gibi = 1,072,741,824
+
+        These are all almost the same numbers, there is a lot of confusion of these terms. 
+        Feel comfortable using both terms, this will be on the exam.
+
+    -Hard Drive - *Magnetic Drive* - Spindel Drive
+    -where we have a rotational media (disks), then a voice coil that reads and writes data on the fly like a record player's needle
+    -on the back of the Magnetic Drive you'll see electroincs, these are the IDE integrated device electronics
+        -dont use that term (It's outdated)
+    -these drives are now referred to as ATA Drives - ADA stands for Advanced Technology Attachment
+    -the ATA standard is defines the language to talk to hard drives, connectorss, data speeds
+        The proper term is ATA Drives
+    -they come in 3.5inch and 2.5inch drives
+    -both size drives have the same size connectors
+    -Most HDDs top out ~120 MB/sec
+
+    Hard Drive Connectors
+    The first gen were Parallel ATA (PATA)
+        -40 pin connectors 
+        -obsolete at this point
+    today we mean SATA (Serail ATA)
+        -there are two types of connectors on the back of the hard drive that are both SATA cables
+        -the power is the larger connector
+        -the data is the smaller connector
+        -SATA cables can be up to 1 meter long
+        -It's an L-shaped connector, so its difficult to put on wrong without force
+        -Other types of SATA 
+        -eSata (External SATA)
+        -external SATA made for external hard drives
+        -can be up to 2 meters long
+        -the connection is a pink rectangle with a notch on the bottom.
+        -designed for hot plug support(plugging in and out often)
+        -No power connector
+        -Runs at same speeds as SATA (depending on motherboard ports)
+        -max cable length is 2 meters for eSATA
+        -mSata (Micro Sata)
+            -looks like a small chip
+            -usually used in laptops or hard drives attached to motherboards
+        -SATA Versions
+        -SATA 1 - 2003 1.5Gibabits/sec
+        -SATA 2 - 2004 3.0Gigabits/sec
+            -Native command queing
+            -The ability to reorder requests for information to minimize the required number of rotations
+            -First Iteration of eSATA      
+        -SATA 3 - 2009 6.0Gigabits/sec
+            -current version of SATA
+
+    -Advanced Host Controller Interface
+        -To ensure the system takes advantage of new features of SATA, 
+        -Open BIOS
+        -Look near peripherals
+        -Something along the lines of SATA mode Selection)
+        -You'll see ACHI or RAID or IDE (Select ACHI)
+        -If working with an established system, DO NOT TURN ON ACHI
+
+    -To ensure the system sees the new hard drive 
+      -go into system setup (BIOS)
+      -go to boot options and see if two hard drives are listed (it may be under something along the lines of Hard Drive BBS utility)
+      -now boot up windows and then Disk Management
+        -You should see two drives, your c: drive and your new drive
+        -You'll still need to partition and format the drive
+
+Solid State Drives-
+   -becoming very popular
+   -same SATA connectors as HDD
+    -both power and data
+   -Works more like RAM with chips and uses Flash Memory just like your phone or camera
+   -Much faster than HDD (about 1gig/sec)
+   -NVME (Non Volitile Memory Host Controler Specification)
+     -a standard designed for SSDs
+     -runs on PCI-E Bus
+       -speed increase
+     -Can run multiple queues at once 
+     -to set up NVME
+      -needs
+       -need modern operating system
+       -Need NVME motherboard
+       -need NVME SSDs
+      -how to
+        -just buy pcie card SSD
+        -SATA Express
+          -Two sata ports with small extra ports
+        -more common is M.2 connector
+          -2 notches in a small card like connection
+          -be careful when buying to verify if the connector supports SATA or NVMe
+        -SATA Express and M.2 are legacy compatible systems
+    -Ensure the system sees the new hard drive just like with an HDD
+    -Still need to partition and format the drive
+
+Overview-
+  -Logical Block Addressing (LBA)
+    -on a HDD, data is written using magnetic writing using + and - 
+      -the Hard drive is stored in discreet chunks called sectors (each 4096 bytes)
+    -An SSD stores the information on chips
+      -The data is stored in discreet chunks called pages (each 4096 bytes)
+    -LBA presents the data in discreet containers called blocks
+    -think of it like a dry cleaners. 
+      -each slot on the conveyor belt is a sector/pages
+      -the operating system then tells the storage device which block to bring back
+    -the translator is your file system.
+      -this sits between the user and the LBA storage device
+        -The user clicks save
+        -then the file system sends the storage device a command to store the device at a specific address (LBA 43AC6952FFA7 or some such)
+        -and the storage device then stores the saved data at the described location
+
+RAID- (Random/Redundant Array of Independant Drives/Devices)
+  -What is a RAID Setup?
+    -As hard drives get bigger, is it better to use multiple smaller drives that can be seen as one?
+      -Yes
+  -Benefits are speed and data safety
+  -RAID levels
+    -RAID 0 - Striping
+      -Must have at least 2 drives (seperated by a controller card so it's seen as one hard drive)
+      -speeds up saves dramatically by saving alternating pieces of data across both hard drives
+      -DANGER: If you lose either one of your hard drives, you'll lose the whole document.
+    -RAID 1 - Mirroring
+      -Requires at least two drives
+      -As each cluster of a document is saved, it writes a copy of each cluster on each hard drive
+      -Both drives end up storing the exact same 
+      -May slow things down, but creates a backup of everything
+      -Drive Duplexing - has 2 controllers, each controller feeding a drive in the Array
+    -RAID 5 - 
+      -Requires at least 3 drives
+      -Take two clusters of saved data and create a parody cluster of them (which can duplicate either of the chunks if one is lost.)
+      -the parody value is saved to a tertiary hard drive. 
+      -If you lose one drive, the parody values will rebuild the document
+      -Is faster than RAID 0
+    -RAID 1+0 or RAID 10-
+      -A stripe of mirrors
+      -Minimum of 4 hard drives (must be an even number)
+      -each set of 2 hard drives will be mirrors.
+      -As we save, the first document chunk will be mirrored across the first set of mirrors,
+        -then, the next chunk will get striped over to the other set of mirrors (one mirrored chunk on each drive)
+        -the next piece gets mirrored on the first set,
+        -the next piece mirrors on the second set.
+      -If we lose an entire mirror set, all info is lost, but if we only lose 1 drive, the system will still run fine.
+      -You won't see this often due to the high number of drives required
+
+RAID Installation- 
+  -How to set up a RAID Array-
+    -2 ways to do it
+      -Software RAID
+        -Going through the Operating System (windows, linux, OS10) to set up RAID
+        -Have to have blank drives to do this
+          -RAID 0 - Striped  
+            -Open Disk Management
+            -Ensure all drives are set to Dynamic
+            -Right click
+            -Select New Striped Volume
+            -Wizard should pop up
+            -Click next
+            -Currently selected disc is shown in 'Selected' column
+            -Other availiable drives are in the 'Available' column
+            -Select each drive you are creating the RAID array with, and click 'Add' for each one.
+            -Click next
+            -assign a drive letter 
+            -click next
+            -format the volume 
+            -click next
+            -click finish
+        -RAID 1 - Mirrored
+          -Setup
+            -Open disk management
+            -Ensure all drives are set to Dynamic
+            -Right click
+            -Select New Mirrored Volume
+            -Wizard should pop
+            -Currently selected disc is shown in 'Selected' column
+            -Other availiable drives are in the 'Available' column
+            -Select each drive you are creating the RAID array with, and click 'Add' for each one.
+            -Click next
+            -assign a drive letter
+            -click next
+            -format the volume
+            -click finish
+          -troubleshooting
+            -If one of the mirrored drives fails
+              -open disk management
+              -right click on the mirrored volume
+              -select break mirrored pair
+                -this will cause the mirroring effect to stop. 
+              -Then remove the malfunctioning drive and treat the working drive as a normal drive.
+              -Next insert a new blank drive, select the existing drive, right click and create mirror
+                -select the new drive and voila, after a little time (dependant on the size of the existing data to be copied), the new drive will be a mirror of the existing drive, and the mirrored RAID is back in effect.
+              
+      -Hardware RAID
+        -Some type of controller built into our system that sets up the RAID arrays and presents them as one volume to the system
+        -Typical High end mobos has hardware raid built into it. Just pick a certain number of SATA connectors and reconfigure the System for RAID
+            -Most are All RAID or No RAID
+            -If you try to set up RAID on a computer with Windows already on it, you'll have to reinstall Windows (there are execptions to this, but they are few and far between)
+        -Firmware RAID
+          -take advantage of a mobo with built in RAID functionalities to set the RAID up for us.
+          -Read your motherboard book!!!! Every book is different.
+          -stay organized, draw out a diagram to show how to connect your RAID array
+          -Label the drives to make it easier to identify while troubleshooting. (by attaching a taped on labeled piece of paper)
+          -2 Terabyes drives show up as 1.8TB in some areas of the system
+          -Connect all drives to the motherboard via SATA cables
+          -locate your m.2 boot drive, you'll build the arrays outside of your boot drive
+          -open system setup
+          -open SATA mode selection, select RAID
+          -reboot system
+          -re-enter system setup, find where to create RAID Volume 
+          -Set your RAID level
+          -select the drives you want
+          -click create volume
+          -Now bootup windows
+            -go to disk manager
+            -you'll see them as one large drive that needs to be formatted
+        -Hardware RAID
+          -Dedicated RAID Controller
+            -Plug regular SATA drives into the controller and those will be your RAID array
+            -This is the best option.
+            -Look for a system setup just for the RAID array. It's not in System Setup, but will be a similar prompt on boot
+              -Select the drives, click save.
+              -watch it automagically work!
+              -Windows Disk management will see it as one drive.
+              -Pulling a drive out and adding a new one in it's place is called being Hot Swappable, this is possible on large systems with 7 or 8 hard drives. 
+                -You can also keep a spare drive called a Hot Drive to do you Hot Swap with
+              -You can set up an extra drive to have the controller fail over to if one of your active hard drives fails.
+
+
+Setting the Boot Order-
+  -After turning on a system unit, your system runs it's POST, tries to find an OS to boot to
+  -to make this work, somewhere in BIOS we have set a boot order to tell the system where to boot from
+  -In general, you boot off where your windows hard drive is located
+    -exceptions
+      -if installing windows may need to boot from DVD drive
+      -or maybe boot off a utility off a thumb drive 
+  -to set boot order, go to system setup
+    -go to the boot tab
+    -look to the right for instructions on how to move selected items up or down the boot order
+    -if booting from thumb drive, ensure the drive is inserted before booting up the system
+      -it then should show up in system settings
+    -UEFI
+      -provides robust boot methodology
+      -got into UEFI BIOS utility  
+        -Go to Boot options
+        -Look at Boot Option Priorities
+          -Click and choose your boot order
+          -All that really matters is what boots first
+  -If someone is having an issue where every time that they boot up, the wrong OS loads, their boot order is out of whack
+
+Hard Drive Troubleshooting-
+  -In today's society the most expensive part of IT troubleshooting is you
+  -If a hard drive is failing, it is cheaper to back it up, and replace it instead of trying to repair the drive
+  -Issues on the A+
+    -Slow performance
+      -Defragmentation
+        -Under Administrative tools (usually)
+        -Happens as an automatic task every few days as a background program in windows
+        -Defragmentation takes files that have become spread out across the drive, and pulls them together for faster speeds 
+        -How to
+          -Select drive to Defragmentation
+          -Analyze the Drive
+          -Optimize the Drive
+      -Disk cleanup
+        -Disk cleanup deletes unnecessary files
+        -This will come up automatically when your drive is extremely full
+      -If neither of these work, back up your data and replace the drive.
+    -Read/Write errors
+      -Very fucking scary things
+      -If this happens once, not an issue. If it happens weekly, this is when it gets scary.
+      -only happens on hard disk drives
+      -3 options
+        -Use error checking launched from graphic Interface
+            -goes through drive, checking each block individually, marking bad blocks
+            -open file explorer
+            -right click on the drive in question
+            -go to properties
+            -tools tab
+            -click on error checking
+            -this can take a while (up to hours)
+        -CHKDSK launched from command lines
+          -open command prompt
+          -enter CHKDSK and hit enter
+          -it will scan and return information about the status
+          -if you want it to fix the disk, add the /F flag 
+            -CHKDSK /F
+        -Back up your data and buy a new drive.
+    -Loud Clicking Noises
+      -Even scarier than Read Write errors
+        -spooling up and random clicking
+          -drive is dying. replace immediately
+        -spooling while continous clicking, then spool down and clicking becomes scratches
+          -back up your drive and get new hard drive
+    -Drive not recognized
+      -Was it installed correctly?
+        -check connections
+         -both data and power
+         -and power to the power source
+        -check BIOS
+          -it should show up here
+        -if it doesnt, check controller settings
+          -it could be turned off
+          -are you using AHCI when you hould be using SATA?
+        -If BIOS sees it and Windows doesn't
+          -check the manufacturer for drivers
+        -If still not found
+          -go buy a new drive. womp womp
+    -Operating System Not found
+      -Remove any unbootable media (thumbdrives, etc.)
+      -Check Boot Order
+        -Occasionally the BIOS will change Boot order
+      -You may have corruption
+        -rebuild operating system
+          -Use windows repair utility
+            -this will repair the corruption issue
+      -If that doesnt work
+        -Replace the drive
+      -Crash Screen
+        -BSoD
+        -Pinwheel of death
+        -Linux crash Screen
+        -most panic inducing thing to see as a Tech
+        -Hard drives are usually the least of your concerns in this time
+        -Read the text to get insight into what the cause is
+        -Utilize Error Checking or Windows Repair tools
+        -If none of that works, buy a new drive
+      -S.M.A.R.T. (System Monitoring And Reporting Technology)
+        -Used to create values that are imposed on the hard drive to allow the hard drive to proc errors when an issue arises
+        -Used to give a heads up that hard drive will die soon.
+        -Windows has no native S.M.A.R.T.
+        -Some BIOS have built in S.M.A.R.T.
+          -during boot system will query the drives and if anything is bad, it'll show an error message
+        -If you want to use S.M.A.R.T. in a windows environment, you'll need to utilize third party Software
+          -Pass Mark utility
+            -Click on a drive
+            -A number of crazy values will be displayed. 
+              -These are preset values by the manufacturer to what we expect the error to be
+            -Every system will have different s.m.a.r.t. values
+            -Mostly it's just querying the drive
+        -OS X and beyond have built in  S.M.A.R.T. support
+        -S.M.A.R.T is a predictor that a drive is going to die
+          -As S.M.A.R.T. errors climb, backup and replace your drive
+      -But I need the drive fixed!
+        -If information must be recovered from a failing drive
+          -First, laugh at the person for not having a backup. 
+            -go on, I'll wait...
+            -
+            -
+            -ok, let's continue
+          -Next, look for a company to recover the data. this is beyond our scope
+          -this is very expensive (minimum of 500$)
+        
+
+
+
