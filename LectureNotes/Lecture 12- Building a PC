@@ -1,0 +1,38 @@
+Types of PCs
+  -Thick Client
+    -Moderate CPU
+    -Moderate amount of RAM
+    -Single hard drive
+    -Optical Drive for Disc Media
+    -Front connectors for USB, maybe some audio
+    -Rear connectors for Video card, several USB, and maybe stereo audio input
+  -Virtualization Workstation
+    -Same as thicck client with the following additions
+      -1 metric fuckton of RAM.
+      -No, but we do add as much RAM as possible 
+  -Thin Client
+    -Often very small
+    -have minimum hardware requirements for their operating system
+  -Graphics/CAD/CAM Workstation
+    -high end graphics card
+    -lots of RAM
+    -lots of CPU power
+    -Wacom Digitizer Tablet would be a nice addition here
+  -Audio/Video Editing Workstation
+    -Graphics/CAD/CAM Workstation with additions
+      -good sound system 
+      -multiple monitors
+  -Gaming PC
+    -Dual Video Cards
+      -Snap in two Identical video cards, and connect them with a small connector to create SLI(Nvidia cards) or Crossfire(AMD cards) 
+      -Makes for incredible graphics
+  -Home Server PC
+    -A computer for mass storage
+    -So you need a lot of storage drives
+    -Add 3 drives and set up a RAID 5 array utilizing a RAID controller
+  -Home Theater PC (HTPC)
+    -Home theater PC case
+    -large surround sound speaker system
+    -big screen TV
+
+

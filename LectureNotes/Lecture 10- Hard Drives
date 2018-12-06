@@ -60,13 +60,13 @@ Hard Drive Disks-
         -It's an L-shaped connector, so its difficult to put on wrong without force
         -Other types of SATA 
         -eSata (External SATA)
-        -external SATA made for external hard drives
-        -can be up to 2 meters long
-        -the connection is a pink rectangle with a notch on the bottom.
-        -designed for hot plug support(plugging in and out often)
-        -No power connector
-        -Runs at same speeds as SATA (depending on motherboard ports)
-        -max cable length is 2 meters for eSATA
+          -external SATA made for external hard drives
+          -can be up to 2 meters long
+          -the connection is a pink rectangle with a notch on the bottom.
+          -designed for hot plug support(plugging in and out often)
+          -No power connector
+          -Runs at same speeds as SATA (depending on motherboard ports)
+          -max cable length is 2 meters for eSATA
         -mSata (Micro Sata)
             -looks like a small chip
             -usually used in laptops or hard drives attached to motherboards

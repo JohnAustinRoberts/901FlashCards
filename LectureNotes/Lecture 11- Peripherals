@@ -41,7 +41,7 @@ DVD Media-
     -single layer
       -Only has one layer of data
     -dual layer 
-      -each layer is seperated by a half mirror, and must be read by an optical drive with two lasers, on to see on each side of the mirror
+      -each layer is seperated by a half mirror, and must be read by an optical drive with two lasers, one to see on each side of the mirror
       -doubles potential storage
     -All these options created a need for a coding system to show what type of drive each disc was compatible with.
       -DVD 9 
@@ -193,8 +193,8 @@ Firewire and other Connections
       -smaller firewire port
       -worked primarily with video cameras
     -Standard cable length of 4.5 meters
-   -Serial ports
-      -The oldest connection in PCs
+  -Serial ports
+    -The oldest connection in PCs
       -Serial connection
         -has 9 pins
         -Is d shaped
@@ -211,7 +211,7 @@ Firewire and other Connections
         -Click Serial
         -Click Open
         -Hope for success message
-    -Parallel Ports
+  -Parallel Ports
       -Parallel ports are just as old as serial ports
       -DB-25 connector (the 25 pin d shaped connector)
       -Centronics Connector
@@ -220,4 +220,123 @@ Firewire and other Connections
       -If you see a parallel port, the equipment is very old, and should probably be upgraded.
 
 Keyboards and Mice-
-  -
+  -Almost all mice and keyboards today are USB
+  -You should always update your drivers, to utilize the full functionality of the mouse/keyboard
+  -HID Drivers is what windows defaults to with USB mice and keyboards
+    -Human Interface Device Drivers
+  -Things to be aware of
+    -there are settings in some older Cmos setups that will say USB mouse or keyboard support.
+      -This is because you probably have an older motherboard with ps2 connectors
+      -This isn't really an issue anymore
+  -Setting up the peripherals 
+    -Mouse Applet
+      -Also called mouse configuration
+      -Open mouse properties
+        -here we can swap primary and secondary buttons
+        -can change pointers
+        -can adjust pointer speed
+        -can set how much the wheel scrolls
+    -Troubleshooting
+      -today's optical mice are very robust, most times, go to device manager and ensure the OS sees the mouse.
+      -try plugging into other USB ports
+      -If the pointer moves, but moves erratically, the mouse may need cleaning. 
+        -Blast the bottom with compressed air.
+        -Can also use mild detergent to clean the dirt.
+    -Keyboards
+      -everything for configuration with mice is the same for keyboards
+      -keyboard applet
+        -open keyboard properties
+          -Two options (Speed and Hardware)
+          -Speed
+            -Repeat Delay vs Repeat Rate - when holding down a key
+              -Repeat Delay 
+                -how long before the letter begins repeating
+              -Repeat Rate
+                -how quickly the letter should be repeated
+          -Hardware
+            -You can see which keyboard you are using.
+            -A lot of hardware come with third party programs to set up your peripherals
+      -Accessibility Options/Ease of Access Options
+        -Click make easier to use
+          -Mouse keys (turns num keypad to mouse)
+          -Sticky keys (adds a delay so you don't have to press two buttons at once for shortcuts.)
+          -Toggle Keys (Makes a tone when pressing caps lock, scroll lock, or num lock)
+          -Filter Keys (will ignore double tapping a key,, taking at once)
+      -Cleaning Keyboards
+        -Compressed air to blow off stuff
+        -If it's sticky, use mild detergent with a damp cloth
+
+Other Input Devices
+  -Digitizer 
+    -like a digital sketchpad/mouse
+    -connects via USB
+    -can read pen pressure for lighter/bolder lines
+    -Usually must have an application to utilize these tablets
+  -Barcode Scanner
+    -Usually won't need a special driver
+    -They are basically keyboards!
+    -pretty much plug in play
+    -only issue is setting up either landscape or portrait scanning
+  -Game Controller
+    -Mostly everything is a USB port
+    -open devices and printers, should see your controller there
+    -go to the controller settings, and select properties
+
+KVM Switches (Keyboard/Video/Mouse)
+  -Sometimes we'll need to be able to utilize more than one system at a time
+    -to do this we can use remote desktops or other things, 
+    -But when you hvae several physical computers under your desk, a KVM switch. 
+  -A KVM switch will allow you to use multiple systems one at a time and switch between them using the same mouse and keyboard
+
+Digital Cameras/Camcorders
+  -Digital Cameras
+    -USB Ports
+    -SD Cards (requires SD card reader in computer)
+    -Some have HDMI ports
+    -Should show up in computer as removable external drive
+  -Digital camcorder
+    -HDMI connectors are common
+    -SD Cards (requires SD card reader in computer)
+    -USB connectors are also common
+    -Should also show up as removable external drive
+
+Webcams
+  -Install the drivers, then plug the webcam in usually via USB. 
+  -As long as the drivers are set up and installed, just follow the onscreen prompts
+  -In general, if you're having issues with a webcam, make sure you're looking at the right camera, the connections are good, the drivers are up to date, and that your application can handle the resolution of your webcam
+
+Installing PC Expansion Cards
+  -First thing is first, determine what new function your computer needs to perform.
+     -Ensure you have some sort of motivation
+  -All kinds of Cards
+    -IF you are installing the expansion card, follow the 5-step process
+      Step 1- Research
+        -Make sure that you want to make sure that you have a compatible expansion slots.
+          -Most will be PCI-E connectors, but be sure that you have the same number of lanes on your connectors
+        -Make sure you have enough power to run the new card
+        -Read the frickin box! It will show hardware and software requirements
+      Step 2- Physical Installation
+        -Insert card into PCI-E connection port
+        -Fasten card to case with screw
+        -connect power
+      Step 3- Drivers
+        -Windows must have a driver that knows how to talk to your new card
+        -Check device manager to see if the device is working, if not, see manufacturer's website for driver download
+      Step 4- Application
+        -Depending on what expansion you are plugging in, some things like USB cards, there are HDI Drivers in Windows
+        -With others, there is no software to utilize the new card, and may need an application downloaded from the manufacturer
+      Step 5- Configuration
+        -The type varies dramatically depending on the drive itself
+          -with a USB card, nothing really needed
+          -on a video capture card, theres a ton of configuration to do
+          -on a video card, most of the configuration is built into Windows
+            -a lot of new video cards have an application to download
+              -the most important things in these applications are
+                -Scan for Games
+                  -Scans the system for games and adjust the settings of those games to maximize performance of the video card
+                -Scheduled update checks
+                  -Set to weekly update checks to keep your drivers up to date
+    
+          
+  
+

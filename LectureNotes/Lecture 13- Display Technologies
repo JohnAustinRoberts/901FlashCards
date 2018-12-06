@@ -1,0 +1,222 @@
+How Monitors Work-
+  -Liquid Crystal Display(LCD)
+    -If you give electricity to an LCD, you can see through it. If no electricity is given, it remains opaque
+  -Pixels are made from LCDs
+  -A single Pixel is composed of 3 pieces called elements
+    -These elements are each a different color and are arranged in a stripe formation
+    -When a color is determined, that element becomes electrified, allowing the light behind it to shine through, and create the appropriate color on the monitor
+    -The backlight is regular fluorescent light called a C CFL (Cold Cathode Fluorescent Lamp)
+      -CCFLs are powered by AC power.
+      -Monitors use AC adapters, and converts all of the incoming power to DC
+      -This causes an issue and results in the need for an Inverter
+        -Known as one of the problem children of LCD panels
+        -converts DC power to AC
+        -One of the problems we run into is if the screen goes black, the inverter may need to be replaced
+        -Very easy to replace inverter, costs about 30$. Just a lot of screws.
+  -Millions of pixels are needed to create a screen
+    -think about a mosaic
+  -Native Resolution
+    -this is the value that is given by the manufacturer when a monitor is built
+    
+  -Plasma and DLP Displays
+    -LED (Light Emitting Diode)
+      -Still uses same LCD pixels but use LED lights instead of CCFLs
+      -Have a longer life than CCFLs
+      -Have a brighter image, though not as warm
+    -Plasma
+      -Each pixel has a fluorescent light for each of the three elements of the pixel 
+      -The amount of electricity passed to each light adjust the color
+      -When certain gases are electricly charged they ionize and glow
+      -Have some big advantages over LCD
+        -Have blacker black
+      -Some issues
+        -Screen burn-in
+        -Screen Door effect - if you get too close, you can see the wires between pixels
+        -Use much more power than LCD
+    -Digital Light Processing (DLP)
+      -Made of a bank of microsopic mirrors
+      -Each mirror can be controlled individually by a mesh of wires and can tilt back and forth
+      -to create an image, the image is shined onto the bank and the mirrors tilt on and off
+      -for color, there is a color wheel spinning in front of the light shining the image, and the mirrors tilt when the cappropriate color is up on the wheel
+      -this all happens insanely fast. 
+      -also comes in a beefier form with 3 banks of mirrors
+        -instead of color wheel it utilizes a prism to seperate the image into it's red green and blue components
+        -each bank then controls the red, green, and blue
+      -Really a projector when you think about it.
+      -Used in rear projection tv or actual projectors
+      -only down side is you need very bright bulbs, which can get expensive.
+
+VGA and DVI
+  -Video Graphics Adapter/Array (VGA)
+    -Was predominant video output for decades
+    -it was an analog adapter, and had to be connected to a RAM DAC (a RAM DAC would change the digital signal from the video card into an analog signal the CRT monitor could understand)
+    -It would then output on 15 pins in three rows to a CRT monitor
+    -As we began to see LCDs, the industry realized they needed a digital connection
+  -Digital Video Interface (DVI)
+    -Because this is digital instead of analog, it did not reqire a RAM DAC, and RAM could be mounted directly on the video card
+    -Has been around about 20 years
+    -The issue is, DVI came out before LCDs were common and so they had to also connect to analog CRT monitors
+    -a few things you could do
+      -some video cards came with both vga and dvi and you could plug into either one
+      -use a DVI-to-VGA adapter
+         -avoid using these if possible
+    -DVI was designed to be backward compatible and there are a few different types
+      -DVI-I (DVI Digtal and Analog) Single Link
+        -Extremely common
+      -DVI-D (DVI Digital) Single Link
+        -has a single dash on the left side of the port
+        -It's missing the 4 holes around the dash, which carry the analog signal
+      -DVI-A (DVI Analog) 
+    -Has issues with resolutions beyond 1920x1080 (Standard High Definition) so they came up with Dual Link DVI
+      -Dual Link DVI
+        -DVI-I(DVI Digital and Analog) Dual Link
+          -has full array of pins
+        -DVI-D (DVI Digital) Dual Link
+          -has full array of pins except those around the keying slot (a.k.a. the dash)
+        
+Other Video Connectors
+  -Composite Video
+    -yellow cable
+    -Usually comes with Red and White stereo connectivity
+    -Oldest and worst connection
+    -designed to carry old school NTSC (original tv type signals)
+  -S-Video Connector
+    -6-pin DIN connector
+    -slightly better than Composite
+    -Was designed for European televisions, and instead of carrying NTSC (American), it carried the European version PAL
+  -Component (RGB connectors)
+    -Same as composite except the yellow cable for video is replaced by a red cable, a green cable, and a blue cable, increasing the quality of the video throughput
+    -still not able to carry high definition video
+  -SPDIF (Sony/Phillips Digital Interface)
+    -a powerful connection
+    -it's audio only
+  -DisplayPort
+    -Not as popular as HDMI
+    -Supports audio video and data
+  -HDMI
+    -Most common connector on modern systems
+    -Two types of connectors
+      -Standard HDMI
+      -Mini HDMI
+    -Both connectors work exactly the same, one is just smaller
+  -Video over ethernet
+    -can carry video information very far distances
+
+Graphics Cards
+  -Features to watch out for
+    -don't buy a card your monitor can't handle
+      -check your connections!
+    -ensure that power is connected
+      -and enough power
+    -make sure the card has room to breathe for the fan
+      -one open PCI-E slot worth of room is ok, more room is better
+    -some cards are double-wide, be careful where you install to not block off any unneeded space
+    -You'll need drivers 
+      -the drivers are updated regularly. 
+      -Reference Drivers
+        -not designed for particular video cards
+        -they are designed for particular GPUs
+        -Not ideal, but will do the job if needed
+      -Extra utilites also can come with updates to drivers
+        -these can let you do more advanced configurations
+
+Projectors
+  -One big issue is Resolution
+  -also look out for lumens (the brightness the projector can put out)
+    -used to be measured in the hundreds
+    -today it is measured in the thousands
+    -1100 lumens is acceptable, higher is better but more expensive
+  -also have to look out for Throw
+    -the closer the porjector is to the screen, the smaller the image
+    -the further back, the larger the image
+  -Some software will see a projector attached and will prompt to display out through the projector.
+  -Light Bulbs 
+    -most expensive part of the projector
+    -usually a halide/mercury vapor bulb
+    -be super careful working with these!
+
+Troubleshooting
+  -VGA Mode (Also called Low Resolution Mode)
+    -When a monitor is in a square box with low resolution on a nice monitor
+    -A video driver issue causes Windows to go into this mode
+    -Main causes-  
+      -You set it up wrong
+      -Your video driver is having serious issues.
+         -go to device manager, remove the driver and re-install the driver
+  -No image on screen
+    -Don't panic
+    -Is the monitor turned on and plugged in
+    -check connections
+    -is computer asleep?
+      -shake mouse
+    -did you turn the brightness all the way down
+    -a secondary video connection button could turn off primary display
+    -some video cards push video mode your monitor can't handle
+      -boot into low resolution mode
+      -turn the resolution down
+    -sometimes monitors die
+      -time to replace it
+    Overheat
+      -if the screen goes blank and then comes back
+        -and then it does it again
+          -and again
+            -and again
+              -check your system for dirt
+              -make sure it has room to breathe
+              -replace fans
+              -clear dust
+              -install liquid cooling
+    -Dead Pixels
+      -A pixel that not working at all.
+        -it is not recieving any signal(black)
+      -a Stuck pixel is one that is stuck at one color
+        -replace the monitor
+    -Video Artifacts
+      -weird things that appear other than the normal screen
+      -check your connections
+        -unplug and replug
+      -check your video card driver 
+        -upgrade or replace your driver
+      -overheating video card
+      -Video RAM going wrong
+      -Nothing is wrong at all, it just happens with compression
+    -Color Patterns incorrect
+      -Two types of situation
+        -monitor is not set up correctly
+          -check your monitor settings (on screen display)
+        -check your connections
+          -particularly VGA and DVI
+    -Dim Image and Flickering Image
+      -Dim Image
+        -Check the brightness on your monitor
+        -Check if you need to replace the CCFL, the LEDs, or the Inverter
+          -replace the device
+      -Flickering Image
+        -not really an issue on today's monitors
+        -check your connections
+      -Distored image and Distorted Geometry
+        -Distored Image
+          -Check Connections
+          -Overscan
+            -with certain TV connections, the screen displayed is bigger than the physical screen
+            -go into display settings and turn on overscan
+        Distorted Geometry
+          -Seen in projectors
+          -Pin cushioning
+            -where the sides of the image are going in and out
+          -Keystoning
+            -weird trapezoidal shape
+          -Screen is cut off on one of the side
+          -Within the projector's settings, you can adjust for this
+      -Screen Burn-in
+        -Something that is permenantly burned into the screen
+        -This is not as often of an issue, but still can happen.
+        -Replace the monitors
+        -In today's world, transient image persistance (image sticking)
+          -similar to burn in, but repairable
+          -run built in static on monitors
+      -Oversized images and text
+        -check if you are in VGA/Low Resolution mode
+        -Check your drivers
+        -Check windows Icon size settings
+        -Check windos DPI (dots per inch) settings

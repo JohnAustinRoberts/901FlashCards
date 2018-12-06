@@ -1,7 +1,6 @@
 Electricity-
   -best way to understand Electricity is to think about water
   -think of voltage as water pressure in the line 
-  -how much water is flowing (amperage/amps) think size of the pipe
   -need both voltage and amperage to create watts
   -volts x amps = watts
   -when it only flows in one direction its a direct current (DC)
@@ -18,7 +17,7 @@ Power Supplies
  -P1 Connector-
    -2 sizes
     -20 pin
-    -24 pin
+    -24 pin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
  -Supplementary Power Connector
   -4 or 8 pin
   -On most motherboards, the 4 pin will work even if there is a 8 pin power slot on the motherboards, though on some, you will need a true 8pin Connector
