@@ -1,0 +1,152 @@
+Printers! 
+  4 Types to know
+    -Dot Matrix
+      -Impact Printer (Can do carbon copys)
+    -Inkjet
+      -great way to make multiple colors
+    -Thermal Printers
+      -cheap
+      -not good for permenant storage
+    -Laser Printers
+      -uses photossensitive drum
+        -designed to hold a charge (usuallly negative) depending on where light hits it, it'll have less charge  
+      -7 Step Printing Process
+        -Step 1 - Processing 
+          -uses RAM to store the data 
+        -Step 2 - Charge Roll lays negative charge onto photosensitive drum
+        -Step 3 - Exposing 
+          -a laser is run back and forth and hits where the image will be 
+          -difference of about 300 volts
+        -Step 4 - developing
+          -bring the toner close to the area with the negative charge between the charge given by the initial step and the laser's charge
+          -this brings the toner into where the laser hit
+        -Step 5 - transferring
+          -uses transfer roller to put extremely positive charge on the paper
+          -this causes the toner to jump to the page
+        -Step 6 - Fusing
+          -uses heat to dry the toner
+        -Step 7 - Cleaning
+          -scrapers run across the drum and scrape off leftover toner
+  -The Thermal, Inkjet, and Dot Matrix technologies are all similar in that it all boils down to a series of tubes
+    -Dot Matrix printer uses pins that poke through a colored ribbon to print
+    -replace the pins with heating wires and its thermal printer
+    -inkjet no pins or wires, its literally tubes connected to resevoirs and shoots the bubbles of ink onto the paper
+
+
+Printer Connections
+  -To connect a printer to a network there are two options
+    -connect a printer to a computer and allow that computer to share the printer on the network
+      -Parallel and Centronics
+        -Centronics
+          -D-shaped 30 pin connector
+        -Parallel
+          -25 pin D-shaped connector    
+      -USB-B Connector
+        -try to use this option
+    -connect the printer to the network and share it from there
+      -ethernet connection
+        -can set the printer with an IP address and it can be connected
+      -print server
+        -connected by ethernet cable it can get an ip address
+          -(some can be configured wirelessly)
+        -then connect to a printer without network capabilities via a usb connection
+      -wireless connection
+        -some printers have wireless capability built in
+      
+Maintaining Impact Printers (Dot Matrix)
+  -Dot Matrix is an old technology that requires a lot of maintenance
+  -Designed to handle tractor feed paper - that paper with the holes on the side
+  -Parts of the Dot Matrix Printer  
+    -print head
+      -has the pins inside it
+      -Inside of print head can get dirty, if you get speckled print, you may need to clean the print head
+        -you can clean it with isopropyl alcohol
+    -ink ribbon
+      -sits around the print head
+      -there is a rewind tab to rewind the ribbon when it gets low, so that you may be able to get another use out of it.
+    -platen
+      -the roller that is the back side of the paper
+      -it must be squared with the print head, there are adjusting screws to manipulate it, but adjusting it is a type of art form
+  -Never use an air gun to clean a printer(you can outside, but it'll blast ink everywhere), use an anti-static vacuum
+
+Maintaining Inkjet Printers 
+  -the first and most important step, you'll hear the carriage bring the ink cartridges over to a maintenance area and caps the inkjet tubes
+  -most maintenance is actually done via software
+    -check if your printer came with a program
+      -Align Printheads
+        -over time, jets will lose alignment, making blurry prints
+        -run this program and you should be good
+      -Clean Printheads
+        -If you arent getting any of one color, use this program
+        -this will run an agressive program to clean the printhead and clear any blockage. This will usually work
+      -Printhead Health
+        -unique to HP
+      -Estimated Ink Levels 
+        -Graphical display of how much ink is remaining
+  -keep printing (at least once a week) to reduce risk of clogs
+  -some print heads are replaceable, others are not
+  -Don't use an airgun for cleaning
+  -If you are getting any other issues, ensure that there is no electromagnetic interference
+
+Maintaining Laser Printers
+  -Can last for a long time with proper maintenance
+  -Maintenance Kit
+    -passed out by the manufacturer to keep your system up and running
+    -make sure to get with your manufacturer to get these!
+  -Issues you may see
+    -Toner Cartridge
+      -if it prints lightly, shake it a little bit
+      -if you have any kind of mark on the photosensitive drum it will show on every print
+    -Generate a lot of o-zone
+      -all lasers come with o-zone filters
+      -if you are getting a lot of jams and the takeup rollers are hard as a rock
+        -your filter is dead, check with maunfacturer for replacement
+    -What would happen if any of the 7 steps of laser printing failed
+      -Step 1 - Processing 
+        -If you get a string of ascii characters, check your drivers
+      -Step 2 - Primary Charge
+        -if there is no charge to the photosensitive drum, you'll come out with images from the last print job with the new print
+      -Step 3 - Laser 
+        -blank sheets of paper if there's no laser operation
+      -Step 4 - Toner
+        -Toner will fade over time, so watch for that
+        -if it fails to get a charge, it will jump to the entire page and print a black sheet
+      -Step 5 - Transfer
+        -if no charge is given to the paper, you'll have no toner jump to it, and thus, a blank page
+      -Step 6 - Fusion
+        -If the image is coming out smeared, the fusion process is not happening correctly
+      -Step 7 - Static Eliminator
+        -If the paper comes out staticky, the eliminator is not working
+    -Other Issues
+      -RAM Constraints
+        -If you try to print something bigger than the RAM of the printer, you'll get an error
+      -check your DPI (Dots Per Inch)
+        -don't run it higher than needed
+      -Paper
+        -Paper is friggin expensive
+          -But cheap paper can cause huge problems
+      
+Troubleshoot Print Jobs
+  -Issues that you may see
+    -If your printer isn't working
+      -Check printer properties
+        -make sure you're printing to the correct one
+          -check your default print settings
+        -Print Spooler
+          -List of print jobs
+          -If a print spool is full, but the printer is offline, as soon as the printer comes online, the jobs will be sent
+          -If you can't cancel a job, check your permissions in printer properties (under security)
+      -No connectivity
+        -When never connected before
+          -check your connections
+          -check your network configuration
+            -is DHCP running?
+            -is the printer connected to the switch?
+            -are you querying it via DNS name but DNS is down?
+        -when can't connect to your normal printer
+          -check your connections
+      -Print Management (Windows 7 Only)
+        -gives you an idea of what is on your system
+          -lists printers, drivers, print servers
+      
+    

@@ -1,0 +1,162 @@
+Laptop Types
+  -5 Types
+    -Standard Laptop
+      -1/2 gb to 1gb RAM
+      -mobile intel processor
+      -two and a half inch storage drive
+      -optical media
+      -regular windows
+    -Desktop Replacement
+      -really bug screen 
+      -tons of RAM 
+      -newest windwos
+      -fullsize keyboard
+      -dual storage drives
+      -optical media
+    -Netbook
+      -dont run typical intel or AMD cpu
+        -they'll run Intel Atom 
+      -usually have small RAM
+      -usually dont have hdd
+      -usually runs lower end version of windows
+    -Ultrabook
+      -Very thin and light
+      -all storage is ssd
+      -lack optical media
+      -lots of RAM
+      -Big screen
+      -nice CPU
+    -Tablet PC
+      -predate modern tablet
+      -can be treated as a tablet
+      -always uses a stylus
+      -in Windows 7 there is a setting called pen and touch
+      -in windows vista the same setting is called pen and input devices 
+      -works the same in both vista and windows 7 but called something different
+        -can configure single click/ single tap, double-click, double tap, flicks, automated handwriting recognition, touch features (using your fingers)
+      -also has tablet and PC settings
+        -calibrate with the pen input to calibrate with they stylus
+      
+Laptop Expandability
+  -Uses mini PCI-E for expansion slots
+  -Docking stations are proprietary and the dock must be made for the make and model of laptop
+  -Port Replicators are USB port hubs that plug into the laptop via a single USB port
+  -expansion cards
+    -Legacy Cards
+      -PCMCIA
+        16bit connector
+      -PC card
+        32bit connector
+      -Type 1 is skiny
+      -Type 2 is medium
+      -Type 3 is thick
+    -Express Cards
+      -Two widths
+        -34mm
+        -54mm
+          -interchangable in the ports!
+
+Touring the Laptop
+-Funtion Key
+  -Allows keys to have a different function if the function key is held down while hitting the button
+-Monitor Types
+  -LCD
+    -LCDs always have a backlight
+    -could be a ccfl
+    -Technologies in LCDs
+      -Twisted Nomadic (TN) and In Planes Switching (IPS)
+        -TN
+          -first gen of LCDs
+          -twisted crystals
+          -not as common on laptops
+        -IPS
+          -better contrast than TN
+          -wider range of view than TN
+  -LED
+    -uses LEDs instead of ccfls
+    -has longer life, can be brighter, and uses less power  
+  -OLED Monitors (Organic Light Emitting Diode)
+    -better contrast
+    -uses less power
+    -seen on many smartphones and tables
+  -Glossy Vs Matte Screen
+    -glossy provides better contrast and richer color, but gives glare
+    -matte screens kill glare, but have lower contrast
+    -determined by manufacturer
+-Pointing devices
+  -Trackpads
+    -most time people don't like the trackpad, it hasn't been configured
+  -Touchpoint
+    -the red nipple!
+    -quite rare these days
+-Inside the Laptop
+  -Use your special screwdrivers
+  -SODIMM connected RAM
+  -If CPU is not sodered on, you can replace it
+  -the cooling fan can be replaced easily
+  -the drive can be replaced easily
+
+Laptop Ports
+  -Covered on A+ ports
+    -SD Card Reader
+    -USB 3.0
+    -VGA
+    -Ethernet
+    -USB 2.0
+    -HDMI
+    -Mini-Display Port
+    -eSATA
+    -Display Port
+    -Thunderbolt Port
+      -Apple products only
+    
+Proper Laptop Disassembly
+  -look for manufacturer repair manual
+  -like surgery, you're going in for a reason
+  -remove cover
+  -If removing tape, if at all possible, keep it intact so it can be replaced when repairs are done
+  -Make a sketch of where each piece came from as you remove each piece
+    -or take a picture before you remove each piece
+  -hold and organize your screws with tape in labeled envelopes
+
+Power Management
+   -Standards
+    -APM (Advanced Power management) Standard
+      -came out in mid-90s
+    -ACPI (Advanced Configuration and Power Interface) Standard
+      -replaced APM
+  -turning on power management
+    -used to be done in BIOS
+      -these settings are mostly ignored by the OS
+      -except for Wake on LAN
+    -ACPI is usually on at all times on modern computers
+      -doesn't mean it's in use, but it's ready 
+      -state 1 - ready
+      -state 2 - close unnecessary programs
+      -state 3 - sleep/standby mode
+        -Keeps RAM powered, and shuts off all other systems
+      -state 4 - hibernate
+        -copies RAM to disk and shuts down
+        -becoming unpopular, being replaced by hybrid states where hibernate would be used
+      -Hybrid Mode
+        -a mix of sleep and hibernate
+        -keeps RAM powered, but copies RAM to disk
+        -this allows for quick reboot, but without the risk of losing data if the power runs out for RAM
+        -In windows on desktop hybrid mode is on by default, but not on laptops
+          -the reason is that laptops are usually closed and put in a bag. this would not be an ideal time to write the RAM contents to the drive
+    -In Windows, we can use Power Plans (or a similarly named thing)
+      -you can choose either balanced, high performance, or if you click additional options, you'll see power saver
+      -you can click on adjust plan settings, and then advanced options to find the option to enable hybrid mode
+      -you can also create your own custom power plan
+        -enter a plan name
+        -configure your settings
+
+Troubleshooting Laptops
+  -sticky keys
+    -use canned air to clean them
+    -if the spring is broken, you'll have to replace the keyboard
+      -it's not too hard, just be very gentle and follow the manufacturer instructions
+  -Replaceing monitor
+    -you'll have to replace the fragile ribbon cable
+    -these make sure it's well connected
+    

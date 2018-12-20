@@ -1,0 +1,441 @@
+TCP/IP
+  -The primary hardware technology used today is a standard called Ethernet
+    -It is great for transferring frames from one computer the the next
+    -But does not provide resources.
+-Local Area Network (LAN)
+  -LAN is a network of computers that are physically connected to each other via a switch and are part of the same broadcast domain
+-Transmission Control Protocol/Internet Protocol (TCP/IP)
+  -Labels each local area network with an address called a Logical Address
+  -Routers
+    -routers don't care about MAC addresses, just logical addresses
+    -They act as an intermediary between networks
+      -a computer encapsulates it's 'Packet' (a chunk of information addressed with a logical address) inside of an Ethernet Frame and  sends a frame to the mac address of the router.
+      -the router unpacks the frame, and then recreates a new ethernet frame addressed to the correct MAC address
+-The numbering system (192.168.1.1)
+  -The idea behind it was that we would have routers spaced all over the US.
+  -these routers would be interconnected by high speed powerful lines and then each router would connect to smaller local networks
+  -Each router has one single number assigned to it between 0 and 255, but not including 0 or 255. Let's say 14 for this example
+    -then other routers connect to these routers, as lower points, not on the same "backbone of the internet"
+    -these routers would then get a number assigned to is. let's say 11 for our example. The full address of this router would be 14.11
+  -But then each of these routers are connected to by even smaller networks, which each get a number assigned, we'll say 27. That would make it 14.11.27
+  -It then finally reaches the user's home router. Which we'll say has the number 19 assigned to it. 14.11.27.19
+  -And poof, you have your TCP/IP address.
+
+Network ID's and Subnet Mask
+  -Open command prompt and use the command IPCONFIG
+  -This opens up the windows IP configuration which displays your 
+    -IPv4 address
+    -the subnet mask address
+      -within a network ID, all computers have the same subnet mask
+    -and the default gateway
+      -Logical address of your router
+  -Network ID (192.168.1)
+    -This is the address your switch uses for each of your computers/devices on the network
+    -the fourth value is then assigned to each connected device giving the full network ID (192.168.1.25)
+    -This identifies your device on the network
+  -Subnet Mask
+    -the subnet mask is the address value that is sent to the switch from a computer with an IP address.
+    -the computer then checks to see if the values of the destination IP address match it's own.
+    -the 255 means that the values must match the Network ID
+    -the 0 means that the IP address can have a different value than the network ID.
+    -If the three are 255.255.255.0
+      -The switch can see that the destination IP address is on the same network, check the IP address and send the packet the appropriate computer
+    -If the destination IP address is outside of the switch's network, the subnet mask will be 0.0.0.0
+      -this indicates that the destination is not on the local network, so the switch passes the packet to the router to be sent off
+    -This let's the switch determine between a local call and a long distance call
+
+-Network Admin
+  -To set up your network addresses, you'll use software.
+  -Open windows > control panel > network and sharing center
+    -Change Adapter Settings
+    -Right click ethernet
+    -click properties
+    -go to IPv4
+    -select properties
+      -Set a static IP address
+        -provide IP address, subnet mask, and default gateway
+    -Usually your router is set to 192.168.1.1
+
+-Dynamic IP Addressing
+  -DHCP (Dynamic Host Configuration Protocol)
+    -Most computers today do not need to have their IP address set up statically
+      -DHCP handles this for you
+    -This is built into your switch and will assign a computer an open Network ID, and also pass the Subnet Mask and Default Gateway
+  -How to set up DHCP
+    -Go into IPv4 properties
+    -By default, it is set to use DHCP
+  -When DHCP Fails
+    -If the DHCP server goes down for one reason or another, your IP address may be gone
+      -169.254.x.x
+        -If you see this, it is an APIPA Address. (Automatic Private Internet Protocol Addressing)
+          -If your computer cannot get to the DHCP servers, windows will default to an APIPA address
+          -if you see an address that starts with 169.254 it is an APIPA. This will be on the exam
+    -So you need to re-establish the connection
+      -ipconfig /renew
+        -this will reset your IP address
+      -ipconfig /release
+        -this will release your IP address
+   -Apipa addressing can be odd
+     -if the dhcp server goes down, everyone stays connected, but loses their IP addresses. 
+     -they are all then assigned an APIPA address beginning with 169.254 and the last two digits aare assigned randomly
+     -If everyone can get still see each other, but not get on the internet, its usually a DHCP  issue
+     -you must be connected to the network to have an APIPA address, otherwise your computer will completely lose it's IP address
+   -know your network ID
+     -Rogue DHCP server
+       -this hands out an unauthorized ip address
+         -for example, if your Network ID is 192.168.1.25 and suddenly it's showing as 192.168.5.93 then you may have a rogue HDCP
+       -this can happen if someone plugs in a differernt router into the network. 
+    
+APIPA
+  -go to control panel
+  -go to network settings > change adpter settings > ethernet properties > IPv4 > alternate configuration tab
+  -Failover options are to use an APIPA or a Static IP address that you can set here
+
+NAT
+  -Once the internet began to run out of IP addresses
+  -to get around this, they came up with Network Address Translation (NAT)
+    -This allows a router to share one IP address across many computers
+  -a router capable of nat will look into a packet being sent from a local computer
+    -it will then look at the IP address of the sender and will grab some unique info
+       -it then writes this into a NAT table
+       -it then rewrites the the individual computer address with the public IP address
+       -when the packet comes back in to the router, it then compares the return public address with it's table to find the network address of the computer
+
+Special IP Addresses
+  -Broadcast
+    -255.255.255.255
+      -every computer on the local area network will take in that backet
+  -loopback
+    -you can ping another computer by using ping followed by the address of that computer
+    -to ping yourself, the address is 127.0.0.1
+      -this is used to test you own connection to the server
+      -you can ping localhost as well, it's the same thing
+  -APIPA addresses
+     -These all start with 169.254
+  -Private IP addresses
+    -These addresses are not used on the internet, only inside a local network
+      -three sets
+        -any ip address that starts with a 10
+        -any ap address between the range of 172.16 through 172.31
+        -the other is any address that start with 192.168 
+          -you set the third value
+          -most famous type of IP addresses
+
+Ping and IPConfig
+  -Ping allows you to contact another computer on your network to ensure a connection
+    -How-to
+      -Open command prompt
+      -type ping 192.168.1.whatever the target is
+      -hit enter
+    -Ping will then give you 4 responses
+    -Continous Ping
+      -ping -t 192.168.1. whatever
+      -to stop hit ctrl+c
+    -Name Translation
+      -add the -a flag to force IP to name translation
+    -ping is mostly used for local networks, and runs into a lot of issues when attempting to ping outside your local network as most routers have firewalling to prevent ping response
+    
+  -IPconfig
+    -open command prompt and enter ipconfig to check your own ip address
+    -ipconfig /all
+      -this gives the full information
+    -ipconfig /
+
+
+TCP, UDP, and ICMP
+  -In a TCP/IP address, the TCP(transmission control protocol) is the protocol for how to talk to another computer, the IP is just your address
+     -TCP
+       -All web browsers use TCP
+       -It's connection oriented
+         -this means that when two devices decide to talk to each other, TCP negotiates to create a connection between client and server 
+  -There other protocals than TCP are
+    -UDP (User Datagram Protocol)
+      -connectionless
+        -data is sent regardless of connection status
+      -much less overhead than TCP, thus fafster
+      -used by DHCP servers
+    -ICMP(Internet Control Message Protocol)
+      -The maintenance protocol for an ip network
+      -is used by ping
+      -connectionless
+      -sends 1 packet only
+
+Port Numbers
+  -A value between 0-65535 thats part of every TCP or UDP packet
+  -Each packet actually has 2 port numbers
+    -the first is used by the receiving system to dertermine the program that needs this data
+    -(ethereal port number) the second number is like a return address the system uses to respond
+  -The first 1024 ports are known as 'well known ports'
+  -Web servers are designed to listen on port 80
+  -Here are the ones I need to memorize
+    21 FTP
+    22 SSH
+    23 TELNET
+    25 SMTP
+    53 DNS
+    80 HTTP
+    110 POP
+    143 IMAP
+    443 HTTPS
+    3389 RDP
+    137-139 NETBIOS/NETBT
+    445 SMP/CIFS
+    427 SLP
+    548 AFP
+
+Working with connections
+  -You need to be able to see what your computer is connected to. Here's how!
+    -Netstat
+      -very old, but powerful command line tool
+      -open command line and enter the command netstat
+      -this will then display all of the connections
+      -if you add the -n flag, it will change the ouptput to numerical
+      -if you add the -a flag it will show all network connections
+    -TCPView
+      -This is a free third party program that shows network connection information in graphical format
+      -this is shown in real time, unlike netstat which has to be rerun to update
+    
+DNS
+  -Domain Name System
+  -basically an address book for ip addresses hosted by millions of DNS servers
+  -Fully Qualified Domain Name
+    -cannot have more than 256 characters
+    -www.totalsem.com
+    -Top Level Domain
+      -.com
+      -.edu
+      -.gov     
+    -Individual Host Name
+      -can be anything, but we follow certain etiquettes
+      -Web Server
+         -www.
+      -File transfer protocol
+         -ftp.
+      -Mail Server
+        -mail.
+    -Secondary Domain Name
+      -All kinds of flexibility here
+      -this is the name of the site
+ -DNS Servers
+   -They respond to DNS queries and respond to DNS queries
+   -if you type ipconfig /all you'll see your DNS settings
+   -When you type in www.google.com your computer sends a query to the local DNS server and asks for the ip address of www.google.com
+   -If the DNS server has the ip address it will give it to you, but if not, it will go to a root server and ask for the ip address
+   -the root server will then direct the DNS server to the ip address of the nearest top level domain server
+   -the DNS server will then query the top level domain server to find the ip address of www.google.com
+   -the top level domain server will then give the DNS the ip address of google.com 
+   -the DNS server will then query the web server for google.com for the ip address associated with www. 
+   -then the web server will respond to the DNS server with the full ip address which will be returned to your computer
+   -your web browser then connects to that ip address
+
+   
+Dealing with DNS
+  -How to configure DNS
+    -go to network connections
+    -right click and go to properties
+    -go to ipv4 properties
+  -How to find your DNS server
+    -ipconfig /all
+  -What to do when DNS goes down 
+    -use the command prompt ping www.google.com
+      -if it responds with a ip address, the DNS server is not down
+      -if it doesnt respond with an ip address, DNS is down
+  -nslookup
+    -command line utlity designed to talk to DNS servers and query it
+    -DNS servers no longer listen to NS look up for the most part
+    -it will show you the DNS server and it's ip address
+    -you can also query a DNS server to see if it's up and running
+  -Call your ISP
+
+Windows Naming
+  -Work group vs domain
+    -when you install windows you do two things
+      -give it a name
+      -give it the type of network its in either a work group or a domain
+    -work group
+      -all computers are peers
+      -all computers are connected to same switch
+      -these computers broadcast their names across the network to other computers
+      -to configure
+        -go to control panel > systems
+        -advanced system settings
+        -go to computer name tab
+          -set up pc name
+    -domain
+      -a seperate computer running a software called Windows Server
+      -this system acts as a domain controller
+      -use remote desktop to talk to the server
+        -home editions of windows cannot join domains
+        -has built in DNS server
+        -has built in DHCP Server
+        -Server manager
+          -program to establish a domain 
+      -to connect a computer to the domain
+        -open the advanced system settings and go to the computer name tab
+        -click on domain
+      -you have to have an account on the domain to join the domain
+
+NET Command
+  -command line tool 
+  - predates windws
+  -net view
+    -this shows the devices connected to the netwrk
+  -net user
+    -this shows the current computer settings
+  -net view \\cimputerName
+    -shows shared folders on that computer
+  -net use
+    -can map drives 
+  -net share
+    -sets files/folders to share
+    -met share Donte=c://users/Austin/desktop/Donte
+  -net accounts
+    -shows all network settings
+  -net start
+    -can start network services
+  -net stop 
+    -can stop network services
+  
+NETDOM Command
+  -To add a new computer to a Domain
+    -go to your server
+      -connect to windows server
+      -open Active Directory Admin Center
+        -this shows the computers attached to the server
+      -open command prompt (admin)
+        -use netdom command
+        -netdom add computerName
+  -to remove
+    -netdom remove 
+
+Windows Name Resolution
+  -Before Vista
+    -If a computer has been connected to a Domain, it will reach out to the domain controller and everything is handled by the controller's built in DNS system
+    -if it wasn't on a domain, you could adjust it using your NETBIOS ports
+  -After windows Vista
+      -Link Local Multi-Cast Name Resolution (LLMNR)
+        -UDP port 5355
+        -in windows pro, it uses netbios and llmnr
+        -in windows home, it uses just llmnr
+      -NBT Stat
+        -doesn't work well with llmnr
+        -there are a few issues with it, but it can be used to help with troubleshooting
+        -command line tool
+        -if entered by itself, you'll get a help screen, but several commands dont work anymore
+          -the ones we will use
+             -n (minus n flag) 
+               -shows the current computers registered name
+             -c (minus c flag)
+               -shows the NBT Cache
+               -these caches reset after a minute or two
+               -you can use netview to refresh this cache
+             -a (minus a flag)
+               -used to go talk with another computer on the network
+               -you'll use nbtstat -a systemname
+               -this will show you the -n registered name information for the target computer
+             -r (minus r flag)
+               -shows statistics
+               -this is an obsolete function, as it does not function with llmnr
+             -take all registered information and rebroadcast it
+             -or reset the cash with 
+               -nbtstat -R
+                 -That clears remote cache table
+               -nbtstat -RR
+                 -rebroadcasts your information
+
+Routers
+  -interconnect broadcast domains
+  -Wide area network
+    -open to internet
+  -Local area network
+    -offline network
+  -routers dont care where packets come from, only where they go to
+  -routers utilzie a routing table
+    -this is a table utilizing IP, subnetmask and interface
+    -this is what the router uses to send information out
+    -there is a default route to send anything out, unless, it is addressed to one of the LAN networks
+    -routers eliminate all broadcast messages when they recieve them, which they do, since they are on the LAN network
+    
+Configuring Routers
+  -SOHO Routers (Small Office/Home Office)
+    -can support only tens of users
+    -usually also a switch and wireless
+    -one connector will be a different color, this is the cable that connects to the ISP (usually via modem)
+    -connect to the router with a computer via ethernet cable to configure.
+    -when initially configuring a router, do not connect to WAN yet.
+    -find the default IP address in the manufacturers book, or even better is to use ipconfig
+      -your default gateway is the router
+    -navigate to the default IP
+    -Find the default username and password for the router in the manual or online
+    -login to the router interface.
+    -First thing's first, change that password!
+      -make sure to change the login to the router password.
+      -Ensure you click apply!
+    -Once the password has changed, you'll have to log in again
+    -LAN Setup
+      -Next, change the network ID
+      -Change the default IP address to a different private IP address
+        -keep the .1 for the router
+        -WRITE EVERYTHING DOWN!!!!
+        -Did you click apply?
+      -You'll have to go to the new IP to continue configuration
+      -Set up DHCP
+        -usually under LAN 
+        -Consider how many computers can be on your network at any one time
+          -limit the IP pool to that many systems
+      -Set up DNS
+        -nothing you really need to do, once connected to ISP, it will be auto-configured
+        -If you do need to connect to a particular DNS server, you can input a default one
+    -WAN Setup
+      -WAN Connection Type
+        -Automatic IP
+          -your router is a dhcp client, and asks for an IP address from your ISP
+        -Static IP
+          -pay extra for this
+          -usually done where you have servers running
+          -IP address will be given by your ISP
+        -PPPoe
+          -toolset to allow ISPs to make you log-in before access to internet
+      -Firewalls
+        -Ensure the firewall is turned on before connecting to WAN
+      
+
+Advanced Router Configuration
+  -Port Forwarding
+    -SOHO routers block incoming requests
+    -Incoming requests on port 80 go to the camera
+      -Go to router settings port forwarding
+      -Enter a name for the device
+      -enter the port range (80)
+      -enter the device's ip address
+      -Set local port to 80
+      -TCP protocol selected
+      -add it
+    -one issue we run into is the commonality of port 80
+      -set the port range to 8181 and the local range to 80
+      -this makes it so that you have to type in the ip address with a colon and 8181 after it. So it'd be 192.168.4.62:8181
+    -DMZ (demilitarized zone)
+      -anything comes in on port 80
+      -this is terrible
+    -
+  -Port Triggering
+    -this is when you are trying to do FTP, your computer sends request to FTP server on port 21, and FTP server responds on Port 20
+    -your router will block this return as it has had no outbound connection on port 20
+    -Port triggering will allow access to port 20 while communications are being held on port 21
+    -Set up
+      -go to router settings
+      -find port triggering
+        -give it a name, a trigger port (21), TCP protocol, and an incoming port (20)
+        -click apply
+  -Quality of Service
+    -This is telling the router how to prioritize bandwith amongst ports
+    -input your upload and download speed, which is provided by your ISP
+    -the old fashioned way to set it up
+      -User Defined quality of service rules
+        -select a service
+          -you can also input a destination port
+          -source IP is for if you want to throttle a particular device
+          -set priority
+      -User defined priorities 
+        -this will show you the priorities and values associated with them
+

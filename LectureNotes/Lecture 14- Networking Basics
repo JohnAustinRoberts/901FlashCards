@@ -1,0 +1,170 @@
+Networking
+  -And not like talking to people
+  -Compare Networking to a restaurant
+    -There are Servers(servers) that deliver content/resources(food) to clients(customers)
+  -A web browser is a type of web client
+
+  Moving Data over a Network
+    -Frames
+      -Data is moved from one computer to another in chunks
+      -each of these chunk store aroun 1500 bytes of data each
+      -these chunks are called frames
+      -this data is shown in 1s and 0s that are being sent from network card to network card
+    -MAC Address
+      -Each Network card has a unique built in value
+      -Always 12 Hexidecimal values seperated into pairs
+        -the first 6 values are unique to each manufacturer
+      -When a frame is sent across the network from one computer to another, the frame is addressed with a to and from, just like with a letter. It is then sent into the network hub, which replicates the frame and distributes it to all connected computers. The computers recieving the frame then check the 'to' MAC address, and if it matches their own, the pass the frame into the software of the computer. If it is not their MAC address, they erase it (except in certain cases where you can set a computer to keep all frames, like when building a network sniffer/network log).
+    -Broadcast Address
+      -this is accepted by all computers regardless of MAC address
+      -broadcast address is ff.ff.ff.ff.ff.ff
+      -A network of computers set up to each be able to hear one another's broadcasts is called a Broadcast Domain
+    -Network HUB
+      -a router to send data between computers
+      -A HUB is a repeater.
+        -When a HUB recieves a frame, it creates copies for each other computer on the network
+        -Every computer recieves a copy of that frame.
+      -The issues with HUBs
+        -Speed
+          -Depending on the number of computers connected to the hub, each pair of talking computers eats into the available bandwith. So if you have a HUB that runs at 100 gigabits/second, but it's connected to 4 computers and all are talking at the same time, each bandwith connection is reduced to about 50 megabits/second!!! 
+          -We got around this by getting rid of HUBS and replaced it with the Switch
+    -Network Switch
+      -It's hard to visually tell the difference between a HUB and a switch
+      -Switches are frickin smart.
+      -Switches take advantage of MAC addresses to speed up the interaction between computers
+      -Switches keep track of the MAC addresses of computers connected to it.
+      -The switch then compares the destination MAC address to it's list of connected computers, and only sends the frame to that computer.
+      -This allows for use of the full bandwidth, greatly increasing speed.
+      -Switches can also still send broadcast messages.
+        -The switch understands that it is a broadcast message and sends it out to all connected computers.
+
+-Structured Cabling
+  -Use an RJ45 to connect the switch to the computer. 
+  -Traditionally we run cables either through the walls or ceiling.
+    -this is good and bad.
+    -While it protects the cables from foot traffic and vacuums, it also causes issues for troubleshooting.
+  -Patch Panel
+    -One end of the "Horizontal Run" connection between a network and computer. (the other end is the ethernet Jack at the computer.)
+    -the patch panel should always be physically near to the network switch.
+    -It has jacks on one side and 1-10 connections on the back. (1-10 connections are done similarly to how the jack is made.)
+    -Once in place, the horizontal run is not touched for for a while as it has fixed ends
+  -Patch cable
+    -runs from the patch panel to the switch
+    -and runs from the wall outlet to the computer.
+  -Cable Modem
+    -takes in a coaxial signal from the phone company
+    -then connect the switch with an RJ45 to the cable modem, and you have access to the internet.
+
+-Patch Cables
+  -Ethernet cable is technically called an Unshielded Twisted Pair (UTP)
+  -Will always have 4 pairs in it if used for network connection
+  -All parts of your network line have a cat rating. This determines the speed. You are only as fast as your slowest piece. This includes the modem, patch cables, patch panel, and jack.
+  -CAT levels
+    -Cat 3
+      -was designed to run 10 Megabit/second ethernet networks
+      -was very popular.
+    -Cat 5
+      -Came out for 100 megabits/second
+      -There were issues with the cables being faster than the patch panels and jacks so they reset the standard into Cat 5E
+    -Cat 5 E
+      -really designed as a improved 100 megabit/second connection
+      -but they did it so well you can actually run 1000 megabit per second or gigabit ethernet along shorter distances
+    -Cat 6
+      -Designed to run 10 gigabit ethernet but only on shorter distances
+    -Cat 6 A
+      -Designed to run 100 meters.
+  -Jacks
+    -On the side of the jack there is a diagram showing the order for connection to the interior colored wires.
+    -there are two options. A and B. These are the two cabling standards that we use in network cabling. They are called the EIA TIA 568 standards.
+      -A
+        -1 green/white
+        -2 green
+        -3 orange/white
+        -4 blue
+        -5 blue/white
+        -6 orange
+        -7 brown/white
+        -8 brown
+      -B
+        -1 orange/white
+        -2 orange
+        -3 green/white
+        -4 blue
+        -5 blue/white
+        -6 green
+        -7 brown/white
+        -8 brown
+    -The difference between the two is dependant on the way your patch panel is set.  
+    -Looking from left to right with the cabling facing away from you, think of the alphabet. If green is before orange, it's |A|lphabetical. If orange is before green, it's |B|ackwards
+    -the string that is also in the UTP is a kevlar string to give the cable tensile strength for when it is pulled.
+    -Once they are in the proper order, slide the wires into the crimp with the clip sticking down.
+  -Plenum vs PVC
+    -three ratings when talking about fire ratings
+      -fire rating (in case of fire, what happens to outer core of cable?)
+      -PVC no fire rating at all
+      -Riser designed to run between floors and ceilings
+      -Plenum is the best fire protection you can get. 
+        -usually required by law for installation in an office space 
+
+          
+Fiber Optic and Coaxial cables
+  -Fiber Optics
+    -Uses light to transmit data instead of electricity.
+    -has several benefits over traditional UTP
+      -can be very long (40 Kilometers is not uncommon!)
+      -Immune to electromagnetic interferance
+    -two types of light that are used in fiber optics are laser light and regular light.
+      -laser light
+        -laser diodes generate laser light
+        -transmitted along Single Mode Fiber Optic Cable
+        -signifigantly faster and more expensive
+      -regular light
+        -LEDs generate visible and infrared light
+        -Transmitted along Multi-mode Cable
+          -cheaper and slower than SMFOC
+    -Issues
+      -cables come in pairs, usually fused together
+        -the card has two connectors one for sending, one for receiving.
+        -this makes for bigger connectors
+      -there are literally hundreds of types of fiber optic connectors
+        -Luckily we only need to know 3!
+          -ST connector
+            -round connector
+            -remember Stick it in and Twist (ST)
+          -SC Connector
+           -Stick and Click 
+           -it's a squarish connector
+          -LC Connector (Local Connector)
+            -much smaller connector than ST and SC
+            -looks like a little fork
+  -Coaxial Cables
+    -It's called coaxial because there are more than one connection sharing an axis
+      -There are two conductors seperated by an insulator (there are usually two conductors, but there can be more.)
+    -Impedence
+      -measured in ohms
+    -Radio Grade (RG)
+      -RG-6
+        -75 ohm Impedence
+      -RG-59
+        -75 ohm Impedence
+    -Coaxial Connectors
+      -BNC connector (British Naval Connector/Bayonette, Niell-Concelman)
+        -it looks like the nozzle for jet fighter mid-air refueling hanging from the tanker plane (the cone!), and twists on to tighten 
+      -F connector
+        -the more commonly known coaxial connector
+        -it has one large pin extending from the central conductor and a threaded twist on collar  
+
+Networking Tools
+  -Tools of the trade
+    -Network Tester
+      -We're looking to see that all of the lights flash, and in order. 
+      -This lets us know that there is both good 'Wire Mapping' (meaning the wires are the right order) and continuity (the cable is complete from one end to the other.)
+    -Microscanner
+      -This tests two ends of a patch cable, and displays a digital readout of the wires that it can see
+      -Can use TDR(Time Domain Reflectometer) to determine cable length
+      -tone generators
+        -this sends a tone 
+      -tone probe
+        -listens for tone sent from tone generators
+        -helps find the one cable in a bundle
+        

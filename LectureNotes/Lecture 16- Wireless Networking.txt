@@ -1,0 +1,140 @@
+Wireless Networking Hardware
+  -80211 Standard
+    -Wireless Network Card
+      -Also called Wireless NIC
+      -contained within the device wishing to connect wirelessly
+    -Wireless Access Point
+      -Only has 1 ethernet connection in the back
+      -This acts as a bridge between a wireless device and a router
+    -To set up a wireless network, we ahve 2 options
+      -Ad Hoc Mode
+        -doesn't use wireless access point
+        -one client will create a wireless network, and others will join it
+      -Infrastructure Mode
+        -you configure a wireless access point, and then connect individual clients
+    -Uses Radio Frequencies
+      -Uses ISM (Industrail, Scientific, and Medical Bands)
+      -Uses 2.4ghz band and 5 ghzband
+      -a band is a range of frequencies
+      -these bands are broken up into channels
+        -these channels help isolate your connection from others running on similar frequencies
+
+WI-FI Standards 
+-Memorize Band and Speed for each standard!
+  -80211 came out in 1997
+  -802.11B
+    -Arguably the first big 802.11 standard
+    -ran at 2.4ghz
+    -11 mb/s
+    -two antennae (one for sending, one for receiving)
+  -802.11A
+    -Came out at about the same time as 802.11B 
+    -ran at 5ghz
+    -54 mb/s
+    -had a few issues on release, so it wasn't as popular
+    -also had a smaller range
+    -two antennae (one for sending, one for receiving)
+  -802.11G
+    -A marrying of the speed of 802.11A and the reliability of 802.11B
+    -runs at 2.4ghz
+    -runs at 54 mb/s
+    -backwards compatible with 802.11B
+    -not compatible with 802.11A
+    -two antennae (one for sending, one for receiving)
+  -802.11N
+    -brought in a new level of complexity
+    -Could run at 2.4 or 5 ghz bands
+    -ran at 600mb/s
+    -MIMO (Multiple input/Multiple output)
+      -could send up to 4 streams of data
+    -the downside is that it works in the 2.4 ghz band
+    -5ghz is the default, 2.4 was only used for backwards compatibility
+  -802.11AC
+    -Runs only at 5ghz band
+    -runs at about 1gigabit/second
+    -mostly internal antennae
+    -up to 8 simultaneous MIMO streams
+      -can support up to 4 clients using MIMO at the same time
+-Memorize Band and Speed for each standard!
+
+Basic WAP Setup
+  -Set up SSID (Service Set Identifier Name)
+    -Enable SSID Broadcast
+      -turning off broadcast will make it so the network will not show up on devices, they must input it
+    -set the channel
+      -do a site survey (use wifi analyzer) to see what networks are overlapping
+      -you can usually set it to auto
+    -set the mode
+      -this is to set backwards compatibility
+      -usually leave it at the default
+  -Apply Security
+    -WPA2-PSK [AES]
+      Allows you to store a Personal Storage Key. Use a long, complex password.
+    -WPA-PSK + WPA2-PSK[AES]
+    -WPA
+    -WPA or WPA2 Enterprise
+      -this turns on a RADIUS Server which requires an IP address
+      -always uses port 1812
+
+Wireless Encryption
+  -used to prevent radio wave interceptions
+  -WEP (Wired Equivalent Privacy)
+    -the issue here was that the way it worked, it incrementally increased the values which could be easily hacked
+    -24 bits of the key are used for an initialization vector, so 64 bits only gives you 40bits
+      -each key =4 bits
+      -this limits you to a 10 character password if you use a 64bit key
+  -WPA (Wifi Protected Access)
+    -All the parts of the 802.11I standard aside from AES
+    -ended up being a little more dificult to hack
+    -enter a passphrase, and it will be perfectly acceptable, but ensure you use as long as password as possible
+  -WPA2
+    -This is a more robust version of WPA
+    -the Best system availiable
+    -Works similar to WPA, but it has turned on AES
+
+Wireless Problem Scenarios
+  -Interference
+    -open Windows Resource Monitor
+    -check the network settings for your network card, this will show the agreed upon speed
+      -interference will slow down your speed
+    -Use windows utilities to check speed
+    -Two solutions:
+      -remove interference
+      -manually set your the wireless access point channel to something different
+  -If connected to router, but cannot connect to internet
+    -check your IP
+      -if you have a 169.254 address, it's given you an apipa address
+        -you have entered the wrong passcode
+  -When working on a network for a while, and then can't connect
+    -check connection properties
+    -if you have made adjustments to your network, ensure your settings still align with the authentication protocols 
+    -if the changes you madde don't match the settings on the computer, it won't connect properly
+    -use forget this network and then reconnect to it
+  
+Connecting to a Wi-Fi Network
+  -click on the wifi icon
+  -choose your network connection and click connect.
+  -run ipconfig to ensure valid IP address
+  -WPS (wifi protected setup)
+    -requires wps hardware
+    -look for the password on he bottom of the router
+    -most hackable thing we see
+    -sounds great, doesnt work
+
+Troubleshoot wireless connections
+  -check your configuration
+  -check that your antennae are pointing straight up
+  -check how many clients are connected to your network
+    MAC Address filter-
+      -this will allow your router to only connect to approved MAC addresses
+
+Bluetooth
+  -Uses profiles
+  -PAN (Personal Area Network)
+    -where two devices share data between themselves
+  -3 Classes of Bluetooth Devices
+    -Determined by the distance the devices can be from one another and maintain a pairing
+    -Class 1 - 100M
+    -Class 2 - 10M
+    -Class 3 - 1M
+

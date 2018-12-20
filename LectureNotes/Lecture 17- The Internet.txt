@@ -1,0 +1,191 @@
+The Internet
+  -Internet Tiers
+    -Tier 1
+      -Peering Agreement
+        -When 2 ISP Companies allow the transfer of data from the rival company so that they can both reach the full breadth of both of their networks freely
+      -These are the (About 9) companies that own and run the majority of the cables around the country. 
+    -Tier 2
+      -Has some amount of Peering agreements, but has to pay tier 1s to use their networks
+    -Tier 3
+      -These companies pay either tier 1 or tier 2 companies to use their networks
+      -this does not mean these are small. Comcast is a tier 3
+
+-The Last Mile
+  -The connection from an individual user to their ISP (internet service provider)
+-Modem (modulator/demodulator)
+-Dial-up
+  -POTS
+    -These are incredibly slow by today's standards
+    -this used an analog signal carried via phone lines
+    -Your ISP would give you a phone number and you would ahve to configure the connection inside windows
+    -these connections would not be permanent, each time you opened a web client, the connection was remade
+-Integrated Services Digital Network (ISDN)
+  -Was a digital solution to the dial-up issue
+  -didnt have regular phones, had special phones that connected them
+  -ran at 128 kb/s
+  
+  Broadband Connections
+    -3 types of broadband you'll run into
+      -DSL (Digital Subscriber Line)
+        -phone line connector
+        -based on phone system
+          -not having to pull cables since it uses your existing phone lines
+          -but have to include filters
+          -have to be within 18000 feet of a central office/switch from phone company
+          -their upload speeds is a small fraction of the download speed
+        -Point-to-Point Protocol Over Ethernet (PPPOE)
+          -this is where you would input your username/password provided by your ISP
+      -Cable
+        -co-axial connector
+        -a great way to carry data
+        -limitations
+          -shared network
+          -guaranteed speed
+      -Fiber
+        -fiber optic connector
+        -super fast!
+
+Wireless Internet Connections
+  -Cellular WAN
+    -LTE (Long-Term Evolution)
+      -these are both similar technologies
+        -both use antennae
+        -both have a range of 15-30 miles
+        -they jump from cell tower to cell tower
+       -LTE is a proprietary standard controlled by phone manufacturers
+    -WiMax (Worldwide Interoperability for Microwave Access)
+      -This is beginning to fade away
+  -802.11
+    -Wireless access points are wireless internet connections
+    -MAN (Metropolitan Area Network)
+      -this is a community run open wifi networks across a city
+  -Satellite
+    -Satellite is slower than a lot of technology, but is also wireless
+
+Internet Applications
+  -Two forms of communitcaion
+    -TCP Based Connection
+      -Primary protocol that is used
+      -goes through the process of a handshake to ensure both computers are ready and connected.
+      -more reliable option
+      -Connection oriented
+    -UDP Based
+      -More simplistic
+      -used when not as worried about the data
+      -the client will send the data to the server without confirming the server is ready
+      -Connectionless and faster
+    Ports
+      -each packet has a port in the both the to and return addresses. 
+        -the to and from ports will be swapped on the return packet, so the computer will know which browser tab requested the data
+      -rattle off the ports from the previous episode here
+      
+Telnet and SSH
+  -Telnet (Port 23!)
+    -command prompt tool to remotely connect to another computer's command prompt
+    -comes with windows
+    -go to command prompt
+      -enter telnet
+      -enter open followed by ip address
+      -you'll have to enter a username and password
+      -then be able to use the command prompt of the target computer
+    -Completely Unsecure!!! 
+  -SSH (Secure Shell) (Port 22!)
+    -This also allows us to remotely access another computer's command prompt, but it is done securely by encrypting the data as it is transferred.
+    -Windows doesnt have built in SSH, so use Putty
+    -Putty
+      -configure this the same way as you would a telnet connection
+
+HTTP
+  -Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure
+  -Http and Https
+    -Http 
+      -Uses Port 80
+      -Unsecured connection on which data is not encrypted
+      -Closes connection after data is transferred
+    -Https
+      -Uses Port 443
+      -Secure Connection, all data transferred between server and client is encrypted
+      -connection stays open while page is open
+  -Netstat
+    -Command Prompt tool
+    -enter command netstat
+      -normal to see many connections for a single tab.
+        -links, ads, any other connection
+    -enter netstat -n 
+      -note all the 80's and 443's
+    -enter netstat -n -a
+      -this will show all connections (including listening ports) your computer could be connected to anything, be careful out there
+
+E-mail
+  -SMTP  (Simple Mail Transfer Protocol)(Port 25!)
+    -is used for you to send email
+  -To get your email you use one of two options - this is determined by email server
+    -Pop3 
+      -runs on port 110
+    -Imap
+      -runs on port 143
+      -allows you to create folders on the server
+
+FTP
+  -File Transfer Protocol
+    -Runs officially on port 21, but also runs on port 20
+    -usually you have two screens for two computers
+    -for open downloads set username as anonymous
+    -only downside is no encryption
+  -SFTP 
+    -Secure File Transfer Protocol
+      -Runs on port 22
+      -it can be a little tricky to set up
+
+Remote Desktop Connections
+  -telnet (Port 23)
+    -this is a command prompt command, but you should use Putty
+      -Select Telnet
+      -Enter IP address of host IP
+      -Enter user account set on host IP
+      -gain access to command prompt on remote computer
+    -One big issue is that everything is in the clear and unencrypted
+  -SSH (Port 22)
+    -Use Putty!
+      -Select SSH
+      -Enter IP address for server IP
+      -enter the username and password
+      -now you have the same access to the command prompt, but you have it encrypted
+  -RDP (Remote Desktop Protocol) (Port 3389)
+    -Supported by most versions of windows that aren't home versions
+    -Go into my computer properties
+      -system > remote settings
+        -Remote Assistance
+          -allow remote assistance will allow you to connect as a client 
+          -remote assistance allows the client to see what is happening
+        -Remote Desktop
+          -remote desktop will not allow the client to see what the connected host is doing to their computer
+          -Allow connections
+    -To get into a system allowing remote access
+      -open remote desktop connection
+        -search mstsc
+        -enter ip address
+        -enter username and password
+        -and boom, you're connected
+        
+File/Folder Sharing
+  -Go to network connections
+    -properties
+    -look for file and network sharing
+      -turn it on!
+    -client for microsoft networks
+      -turn it on!
+  -SMB (Server Message Block)
+    -correct term
+  -CIFS (Common Internet File System)
+    -on A+, but it's wrong
+  -TCPVIEW 
+    -shows connections
+    -click on local port to show by sending port
+    -change to numbers and you can see ports 137, 138, and 139 for CIFS/NEETBIOS Over IP 
+    -and you have port 445 for SMB.
+  -Apple Filing Protocol (AFP) (Port 548)
+    -only on Mac products
+    -not very common
+  -Linux emulates SMB with SAMBA
+  

@@ -1,0 +1,73 @@
+Understanding Mobile Devices
+  -What is a mobile device?
+    -Small/handheld device
+    -sealed device
+      -cant swap out RAM etc.
+    -Sensors
+      -GPS sensor
+      -Compass
+      -Accelerometer
+      -Gyroscope
+      -Camera
+      -Ambient Light Sensor
+    -Run on specialized OS designed to only run for them
+       -IoS
+       -Android
+       -Etc but not desktop version of windows
+       -Usuallly designed for a touch based interface
+       -Usually have an App Store to get applications
+  -Subclasses of Mobile Devices
+    -PDA (Personal Digital Assistants)
+      -ran a version of windows mobile (not like windows 10 mobile)
+    -Palm OS
+    -Smartphone
+      -combined cell phone and pdas
+      -Mobile OS
+      -Wifi
+    -Tablet
+      -runs mobile OS
+      -bigger than smartphone
+      -generally don't have phone capabilities
+      -may have stylus support
+    -Phablets
+      -phone/tablet mix
+      -it's a big-ass phone
+    -Purpose Built Mobile Devices
+      -E-Reader
+        -Designed just to read books on
+      -fitbit surge fitness tracker
+        -has heartrate monitor
+        -has gps
+        -has multiple things but all focused on increasing health
+    -Wearable Device
+      -apple watch!!
+        -these watches are general purpose
+    
+Wired Mobile Connections
+  -most of todays mobile device connections are standardized
+    -Power & Data
+      -Micro USB
+        -PS4 connector
+        -Android Phones
+        -Windows Phones
+      -USB-C
+        -Becoming more and more popular
+      -Apple Lightning Connector
+        -new iphone/ipad power charger
+    -Video Output
+      -Mini HDMI
+      -Micro HDMI
+      -Mobile High Definition Link
+        -similar to micro hdmi and micro usb
+        -adapters for most connectors
+          -issues with the standard
+    -Other Wired Connections
+      -3.5mm heaphone jack
+        -earbuds
+          -2 black marks (contacts)
+            -one for left, one for right
+        -card reader
+          -4 contacts
+            -intepreted as sound, and brought in as data
+      -External Battery Power
+

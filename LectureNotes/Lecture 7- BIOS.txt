@@ -20,7 +20,7 @@ What is POST?
   -The CPU sends a message to each part of the motherboard, asking for responses from peripherals to show them on the system
   -If the peripheral has no issues, it will come back positive, if there is an issue, it will tell the system there is a problem
   -Now, POST has to test the video capabilities, and broadcast any errors it may have, this is the first thing you see at startup.
-    -But what if there is an issue with the video?4
+    -But what if there is an issue with the video?
     -Then we need to use BEEP Codes.
       -this breaks the POST up into 2 pieces (before video is tested, and after video is tested)
       -You'll need a speaker of some kind, if no speaker is attached to your computer, you'll need a piezoelectric speaker, which connects directly to your motherboard
