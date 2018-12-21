@@ -9,7 +9,7 @@ Laptop Types
     -Desktop Replacement
       -really bug screen 
       -tons of RAM 
-      -newest windwos
+      -newest windows
       -fullsize keyboard
       -dual storage drives
       -optical media
